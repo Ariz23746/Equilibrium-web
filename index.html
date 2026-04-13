@@ -163,8 +163,8 @@
                     submitBtn.disabled = true;
                     submitBtn.style.opacity = '0.5';
 
-                    // PRODUCTION UPLINK: Secure Feedback Node
-                    const API_BASE = 'https://equilibrium-api.duckdns.org/api/v1';
+                    // PRODUCTION UPLINK: Secure Feedback Node (Port 4000)
+                    const API_BASE = 'https://equilibrium-api.duckdns.org:4000/api/v1';
 
                     try {
                         const response = await fetch(`${API_BASE}/feedback`, {
