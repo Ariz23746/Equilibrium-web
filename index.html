@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equilibrium | Financial Command Center</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Outfit:wght@900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/webp" href="assets/logo.webp">
+</head>
+<body>
+    <nav class="main-nav">
+        <div class="equilibrium-container nav-content">
+            <div class="brand">
+                <img src="assets/logo.webp" alt="Equilibrium Logo" class="nav-logo">
+                <span class="brand-name">Equilibrium</span>
+            </div>
+            
+            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <label for="menu-toggle" class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#protocols">Protocols</a>
+                <a href="#feedback">Feedback</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="equilibrium-container hero">
+        <div class="ticker">EST. <span id="launch-year">2024</span> • SYSTEM_LIVE</div>
+        <h1>Command your <span class="gradient-text">Capital</span></h1>
+        <p>Achieve financial sovereignty through tactical expense strategy, predictive forecasting, and the global Vanguard standings.</p>
+        
+        <div class="hero-actions" id="hero-actions" style="margin-top: 40px; display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; align-items: center;">
+            <a href="#" class="store-badge">
+                <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&amp;releaseDate=1310601600&h=90eb9170560b0805c6d32aa6c3d18392" alt="Download on the App Store" style="height: 44px;">
+            </a>
+            <a href="#" class="store-badge">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" style="height: 44px;">
+            </a>
+        </div>
+    </header>
+
+    <main class="equilibrium-container">
+        <section class="modules" id="features">
+            <div class="module-card">
+                <div class="device-frame">
+                    <img src="assets/dashboard.png" alt="Equilibrium Dashboard">
+                    <div class="frame-glow"></div>
+                </div>
+                <h3>CyberPulse Dashboard</h3>
+                <p>A multi-layered, tactile uplink of your current fiscal health. Real-time synchronization for your spending sectors.</p>
+            </div>
+            <div class="module-card">
+                <div class="device-frame" style="border-color: var(--secondary);">
+                    <img src="assets/fortune.png" alt="Fortune Teller Analytics">
+                    <div class="frame-glow" style="background: radial-gradient(circle at 50% 0%, var(--secondary), transparent 70%); opacity: 0.1;"></div>
+                </div>
+                <h3>The Fortune Oracle</h3>
+                <p>Scan your spending velocity to forecast exactly when you'll hit your limit—or when you'll achieve your savings goals.</p>
+            </div>
+            <div class="module-card">
+                <div class="device-frame" style="border-color: var(--tertiary);">
+                    <img src="assets/summit.png" alt="The Summit Leaderboard">
+                    <div class="frame-glow" style="background: radial-gradient(circle at 50% 0%, var(--tertiary), transparent 70%); opacity: 0.1;"></div>
+                </div>
+                <h3>Vanguard Summit</h3>
+                <p>Calibrate your performance against the Equilibrium Elite. Climb the ranks from Initiate to Sovereign.</p>
+            </div>
+        </section>
+
+        <section class="protocols" id="protocols">
+            <h2 style="text-align: center; margin-bottom: 60px;">System <span class="gradient-text">Protocols</span></h2>
+            <div class="protocol-grid">
+                <div class="protocol-cell">
+                    <h4>Privacy Architecture</h4>
+                    <p>Is my financial data secure?</p>
+                    <div class="protocol-answer">Your fiscal intelligence is protected by industry-standard TLS encryption during uplink and secure database isolation. We prioritize operative privacy through audited vault protocols.</div>
+                </div>
+                <div class="protocol-cell">
+                    <h4>The Fortune Oracle</h4>
+                    <p>How does the forecasting engine work?</p>
+                    <div class="protocol-answer">Equilibrium scans your spending velocity to identify burn patterns, forecasting exactly when your capital shields will deplete.</div>
+                </div>
+                <div class="protocol-cell">
+                    <h4>Global Standings</h4>
+                    <p>How do I climb the Vanguard Summit?</p>
+                    <div class="protocol-answer">Climbing the ranks requires consistent financial discipline. Operatives who stay in "Equilibrium" Status the longest achieve Sovereign status.</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="feedback" id="feedback">
+            <h2 style="text-align: center; margin-bottom: 40px;">Share Your <span class="gradient-text">Insights</span></h2>
+            <p style="text-align: center; color: var(--text-muted); margin-bottom: 60px; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Help us refine Equilibrium. Whether you have a feature suggestion or found a bug, your feedback is essential for building the ultimate financial command center.
+            </p>
+            
+            <form id="feedback-form" class="feedback-form">
+                <div class="form-row">
+                    <div class="input-group">
+                        <label>Your Name</label>
+                        <input type="text" id="fb-name" required placeholder="e.g. John Doe">
+                    </div>
+                    <div class="input-group">
+                        <label>Email Address</label>
+                        <input type="email" id="fb-email" required placeholder="john@example.com">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>Your Message</label>
+                    <textarea id="fb-message" required placeholder="Tell us what's on your mind..."></textarea>
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%; cursor: pointer;">Submit Feedback</button>
+                <div id="fb-status" class="fb-status"></div>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="equilibrium-container">
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Protocols</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="#">Support Node</a>
+            </div>
+            <p class="copyright">© <span id="copyright-year">2024</span> Equilibrium Corp • Production Uplink Active</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentYear = new Date().getFullYear();
+            const launchYear = document.getElementById('launch-year');
+            const copyrightYear = document.getElementById('copyright-year');
+            if (launchYear) launchYear.textContent = currentYear;
+            if (copyrightYear) copyrightYear.textContent = currentYear;
+
+            // Feedback Form Logic
+            const feedbackForm = document.getElementById('feedback-form');
+            const fbStatus = document.getElementById('fb-status');
+
+            if (feedbackForm) {
+                feedbackForm.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    
+                    const name = document.getElementById('fb-name').value;
+                    const email = document.getElementById('fb-email').value;
+                    const message = document.getElementById('fb-message').value;
+                    const submitBtn = feedbackForm.querySelector('button');
+
+                    // Reset status and disable button
+                    fbStatus.className = 'fb-status';
+                    fbStatus.textContent = 'Sending your feedback...';
+                    fbStatus.style.display = 'block';
+                    submitBtn.disabled = true;
+                    submitBtn.style.opacity = '0.5';
+
+                    try {
+                        const response = await fetch('http://localhost:4000/api/v1/feedback', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({ name, email, message })
+                        });
+
+                        const data = await response.json();
+
+                        if (response.ok) {
+                            fbStatus.className = 'fb-status success';
+                            fbStatus.textContent = 'Feedback submitted! Thank you for helping us improve Equilibrium.';
+                            feedbackForm.reset();
+                        } else {
+                            throw new Error(data.message || 'Submission interrupted');
+                        }
+                    } catch (error) {
+                        fbStatus.className = 'fb-status error';
+                        fbStatus.textContent = `Error: ${error.message}`;
+                    } finally {
+                        submitBtn.disabled = false;
+                        submitBtn.style.opacity = '1';
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
