@@ -57,6 +57,12 @@ h1, h2, h3 {
   position: relative;
 }
 
+@media (max-width: 768px) {
+  .hero {
+    padding: 60px 0 40px;
+  }
+}
+
 .hero::before {
   content: '';
   position: absolute;
@@ -83,9 +89,10 @@ h1, h2, h3 {
 }
 
 .hero h1 {
-  font-size: clamp(3rem, 10vw, 5rem);
+  font-size: clamp(2.5rem, 10vw, 5rem);
   margin-bottom: 16px;
   font-weight: 900;
+  line-height: 1.1;
 }
 
 .hero p {
@@ -146,6 +153,17 @@ h1, h2, h3 {
   color: var(--text-muted);
   font-size: 0.9rem;
   text-align: center;
+}
+
+@media (max-width: 768px) {
+  .modules {
+    padding: 40px 0;
+  }
+  
+  .module-card {
+    padding: 24px;
+    border-radius: 24px;
+  }
 }
 
 /* UI Components */
@@ -458,6 +476,17 @@ footer {
   padding: 48px;
   border-radius: 32px;
   box-shadow: 0 40px 100px rgba(0,0,0,0.6);
+}
+
+@media (max-width: 768px) {
+  .feedback {
+    padding: 60px 0;
+  }
+  
+  .feedback-form {
+    padding: 24px;
+    border-radius: 24px;
+  }
 }
 
 .form-row {
