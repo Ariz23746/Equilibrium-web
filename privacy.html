@@ -1,59 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Protocols | Equilibrium</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Outfit:wght@900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        .policy-content { padding: 120px 0; max-width: 800px; margin: 0 auto; }
-        .policy-content h1 { margin-bottom: 40px; color: var(--primary); }
-        .policy-content h2 { margin: 40px 0 20px; color: var(--text-main); font-size: 1.2rem; }
-        .policy-content p { color: var(--text-muted); margin-bottom: 20px; font-size: 0.95rem; }
-        .policy-content ul { color: var(--text-muted); margin-bottom: 20px; padding-left: 20px; }
-        .policy-content li { margin-bottom: 10px; font-size: 0.95rem; }
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Equilibrium - Financial Clarity</title>
+    
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    
+    <!-- Equilibrium Native App Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&amp;family=Space+Grotesk:wght@400;500;700&amp;display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script id="tailwind-config">
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "bg-main": "#FCFCFD",     /* Ultra soft off-white canvas */
+                        "bg-card": "#FFFFFF",     /* Pure white for bento boxes */
+                        
+                        "text-primary": "#0A0A0A", /* Softer black for extreme legibility */
+                        "text-secondary": "#6B7280", /* Elegant slate grey */
+                        
+                        "border-subtle": "#F3F4F6",
+                    },
+                    fontFamily: {
+                        "serif": ["Newsreader", "serif"],
+                        "sans": ["Manrope", "sans-serif"],
+                        "mono": ["Space Grotesk", "sans-serif"]
+                    },
+                    boxShadow: {
+                        "bento": "0 10px 40px -10px rgba(0,0,0,0.04)", /* Very subtle, soft elevation */
+                        "button": "0 4px 14px 0 rgba(0,0,0,0.1)"
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        body {
+            background-color: theme('colors.bg-main');
+            color: theme('colors.text-primary');
+        }
+        
+        .mask-bottom-fade {
+            -webkit-mask-image: linear-gradient(to bottom, black 65%, transparent 95%);
+            mask-image: linear-gradient(to bottom, black 65%, transparent 95%);
+        }
+
+        .hover-lift {
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -8px rgba(0,0,0,0.15);
+        }
     </style>
 </head>
-<body>
-    <div class="equilibrium-container policy-content">
-        <a href="index.html" class="ticker" style="text-decoration: none; margin-bottom: 40px; display: inline-block;">← RETURN_TO_BASE</a>
-        <h1>Privacy Protocols</h1>
+
+<body class="antialiased selection:bg-gray-200 selection:text-black font-sans">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-bg-main/80 backdrop-blur-xl border-b border-border-subtle transition-all">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center h-24">
+            <div class="font-serif text-3xl font-medium tracking-tight">Equilibrium.</div>
+            <ul class="hidden md:flex gap-10 items-center">
+                <li><a class="font-mono text-sm font-bold text-text-secondary hover:text-text-primary transition-colors tracking-widest uppercase" href="#">Manifesto</a></li>
+                <li><a class="font-mono text-sm font-bold text-text-secondary hover:text-text-primary transition-colors tracking-widest uppercase" href="#features">Platform</a></li>
+            </ul>
+            <button class="hidden md:block bg-text-primary text-white hover:bg-black px-8 py-3.5 rounded-full font-mono text-sm font-bold tracking-widest uppercase transition-all hover-lift shadow-button">
+                Join Waitlist
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pt-40 pb-32 max-w-3xl mx-auto px-6 md:px-12 font-sans min-h-screen">
+        <a href="index.html" class="inline-block px-4 py-2 bg-white rounded-full font-mono text-xs font-bold text-text-secondary uppercase tracking-[0.2em] mb-12 border border-border-subtle shadow-sm hover:text-text-primary transition-colors hover-lift">← Return Home</a>
         
-        <p>Your financial data is your sovereignty. This policy outlines how Equilibrium handles your tactical financial data and identity information.</p>
-
-        <h2>1. Data Collection & Synchronization</h2>
-        <p>Equilibrium collects the following information to synchronize your financial command center:</p>
-        <ul>
-            <li><strong>Identity Data</strong>: Neural Alias (username), Email, and Profile Avatar.</li>
-            <li><strong>Financial Telemetry</strong>: Expense logs, monthly budget limits, and sector allocations.</li>
-            <li><strong>Technical Metadata</strong>: Device push tokens for operational alerts.</li>
-        </ul>
-
-        <h2>2. Data Utilization</h2>
-        <p>Your data is processed strictly for the following operational requirements:</p>
-        <ul>
-            <li><strong>The Fortune Oracle</strong>: Calculating future burn rates and surplus projections.</li>
-            <li><strong>The Summit</strong>: Determining your standing in the global Vanguard standings.</li>
-            <li><strong>Synchronization</strong>: Ensuring your data is available across your authenticated nodes.</li>
-        </ul>
-
-        <h2>3. Third-Party Integrations</h2>
-        <p>We utilize audited third-party partners for specific infrastructure nodes:</p>
-        <ul>
-            <li><strong>Media Storage</strong>: Avatars are processed via Cloudinary.</li>
-            <li><strong>Compute Nodes</strong>: Core databases are hosted on secured AWS Lightsail instances.</li>
-        </ul>
-
-        <h2>4. Security Protocols</h2>
-        <p>All data uplinks are protected by industry-standard SSL encryption and token-based authentication (JWT). We do not sell your financial telemetry to advertisers or external entities.</p>
-
-        <h2>5. Data Erasure</h2>
-        <p>Users maintain full sovereignty over their data. You may request full account decommissioning and data erasure at any time directly within the app or through our dedicated <a href="delete-account.html" style="color: var(--primary);">Account Deletion Node</a>.</p>
+        <h1 class="font-serif text-4xl md:text-5xl font-medium text-text-primary mb-12 tracking-tight">Privacy Protocols</h1>
         
-        <p style="margin-top: 80px; font-size: 0.8rem;" class="copyright">Last Calibrated: April 2026</p>
-    </div>
+        <div class="space-y-8 text-text-secondary text-lg leading-relaxed">
+            
+<p>Your financial data is your sovereignty. This policy outlines how Equilibrium handles your tactical financial data and identity information.</p>
+
+<h2 class="font-serif text-2xl font-medium text-text-primary mt-12 mb-6">1. Data Collection & Synchronization</h2>
+<p>Equilibrium collects the following information to synchronize your financial command center:</p>
+<ul class="list-disc pl-6 space-y-3 mt-4">
+    <li><strong class="text-text-primary font-medium">Identity Data</strong>: Neural Alias (username), Email, and Profile Avatar.</li>
+    <li><strong class="text-text-primary font-medium">Financial Telemetry</strong>: Expense logs, monthly budget limits, and sector allocations.</li>
+    <li><strong class="text-text-primary font-medium">Technical Metadata</strong>: Device push tokens for operational alerts.</li>
+</ul>
+
+<h2 class="font-serif text-2xl font-medium text-text-primary mt-12 mb-6">2. Data Utilization</h2>
+<p>Your data is processed strictly for the following operational requirements:</p>
+<ul class="list-disc pl-6 space-y-3 mt-4">
+    <li><strong class="text-text-primary font-medium">The Fortune Oracle</strong>: Calculating future burn rates and surplus projections.</li>
+    <li><strong class="text-text-primary font-medium">The Summit</strong>: Determining your standing in the global Vanguard standings.</li>
+    <li><strong class="text-text-primary font-medium">Synchronization</strong>: Ensuring your data is available across your authenticated nodes.</li>
+</ul>
+
+<h2 class="font-serif text-2xl font-medium text-text-primary mt-12 mb-6">3. Third-Party Integrations</h2>
+<p>We utilize audited third-party partners for specific infrastructure nodes:</p>
+<ul class="list-disc pl-6 space-y-3 mt-4">
+    <li><strong class="text-text-primary font-medium">Media Storage</strong>: Avatars are processed via Cloudinary.</li>
+    <li><strong class="text-text-primary font-medium">Compute Nodes</strong>: Core databases are hosted on secured AWS Lightsail instances.</li>
+</ul>
+
+<h2 class="font-serif text-2xl font-medium text-text-primary mt-12 mb-6">4. Security Protocols</h2>
+<p>All data uplinks are protected by industry-standard SSL encryption and token-based authentication (JWT). We do not sell your financial telemetry to advertisers or external entities.</p>
+
+<h2 class="font-serif text-2xl font-medium text-text-primary mt-12 mb-6">5. Data Erasure</h2>
+<p>Users maintain full sovereignty over their data. You may request full account decommissioning and data erasure at any time directly within the app or through our dedicated <a href="delete-account.html" class="text-text-primary underline hover:text-black font-medium">Account Deletion Node</a>.</p>
+
+<p class="mt-16 font-mono text-xs uppercase tracking-widest text-text-secondary">Last Calibrated: April 2026</p>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full py-12 bg-bg-main border-t border-border-subtle">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="font-serif text-2xl font-medium text-text-primary">Equilibrium.</div>
+            <div class="flex gap-8 flex-wrap justify-center md:justify-end">
+                <a class="font-mono text-xs font-bold tracking-widest uppercase text-text-secondary hover:text-text-primary transition-colors" href="privacy.html">Privacy</a>
+                <a class="font-mono text-xs font-bold tracking-widest uppercase text-text-secondary hover:text-text-primary transition-colors" href="terms.html">Terms</a>
+                <a class="font-mono text-xs font-bold tracking-widest uppercase text-text-secondary hover:text-text-primary transition-colors" href="delete-account.html">Data Deletion</a>
+                <a class="font-mono text-xs font-bold tracking-widest uppercase text-text-secondary hover:text-text-primary transition-colors" href="mailto:hq.equilibrium.ai@gmail.com">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Timeline Animation Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('timeline-container');
+            const path = document.getElementById('timeline-path');
+            const nodes = document.querySelectorAll('.timeline-node');
+            
+            function drawCurvyTimeline() {
+                if (!container || !path || nodes.length === 0 || window.innerWidth < 640) return;
+                
+                const containerRect = container.getBoundingClientRect();
+                let d = '';
+                
+                nodes.forEach((node, index) => {
+                    const rect = node.getBoundingClientRect();
+                    const x = rect.left - containerRect.left + rect.width / 2;
+                    const y = rect.top - containerRect.top + rect.height / 2;
+                    
+                    if (index === 0) {
+                        d += `M ${x} 0 L ${x} ${y} `;
+                    } else {
+                        const prevNode = nodes[index - 1];
+                        const prevRect = prevNode.getBoundingClientRect();
+                        const prevX = prevRect.left - containerRect.left + prevRect.width / 2;
+                        const prevY = prevRect.top - containerRect.top + prevRect.height / 2;
+                        
+                        // Use constant vertical handles for mathematically perfect C1 continuity through nodes
+                        const HANDLE_Y = 120;
+                        const dx = (index % 2 === 1) ? 120 : -120; 
+                        
+                        const cp1x = prevX + dx;
+                        const cp1y = prevY + HANDLE_Y;
+                        
+                        const cp2x = x + dx;
+                        const cp2y = y - HANDLE_Y;
+                        
+                        d += `C ${cp1x} ${cp1y}, ${cp2x} ${cp2y}, ${x} ${y} `;
+                    }
+                    
+                    if (index === nodes.length - 1) {
+                        d += `L ${x} ${container.offsetHeight} `;
+                    }
+                });
+                
+                path.setAttribute('d', d);
+                
+                // Initialize scroll animation
+                const length = path.getTotalLength();
+                path.style.strokeDasharray = length;
+                path.style.strokeDashoffset = length;
+                path.style.transition = 'stroke-dashoffset 0.1s ease-out';
+                
+                updateScroll();
+            }
+            
+            function updateScroll() {
+                if (!path || window.innerWidth < 640) return;
+                const rect = container.getBoundingClientRect();
+                const viewportHeight = window.innerHeight;
+                
+                // Start drawing when container enters viewport, finish when it leaves
+                const scrollStart = rect.top - viewportHeight + 300;
+                const scrollEnd = rect.bottom - viewportHeight / 2;
+                
+                let progress = -scrollStart / (scrollEnd - scrollStart);
+                progress = Math.max(0, Math.min(1, progress));
+                
+                const length = path.getTotalLength();
+                path.style.strokeDashoffset = length * (1 - progress);
+            }
+            
+            window.addEventListener('resize', drawCurvyTimeline);
+            window.addEventListener('scroll', updateScroll);
+            
+            // Draw initially
+            setTimeout(drawCurvyTimeline, 200);
+        });
+    </script>
 </body>
 </html>

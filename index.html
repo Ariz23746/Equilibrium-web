@@ -1,198 +1,331 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Equilibrium | Financial Command Center</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Outfit:wght@900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/webp" href="assets/logo.webp">
-</head>
-<body>
-    <nav class="main-nav">
-        <div class="equilibrium-container nav-content">
-            <div class="brand">
-                <img src="assets/logo.webp" alt="Equilibrium Logo" class="nav-logo">
-                <span class="brand-name">Equilibrium</span>
-            </div>
-            
-            <input type="checkbox" id="menu-toggle" class="menu-toggle">
-            <label for="menu-toggle" class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </label>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Equilibrium - Financial Clarity</title>
+    
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    
+    <!-- Equilibrium Native App Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&amp;family=Space+Grotesk:wght@400;500;700&amp;display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script id="tailwind-config">
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "bg-main": "#FCFCFD",     /* Ultra soft off-white canvas */
+                        "bg-card": "#FFFFFF",     /* Pure white for bento boxes */
+                        
+                        "text-primary": "#0A0A0A", /* Softer black for extreme legibility */
+                        "text-secondary": "#6B7280", /* Elegant slate grey */
+                        
+                        "border-subtle": "#F3F4F6",
+                    },
+                    fontFamily: {
+                        "serif": ["Newsreader", "serif"],
+                        "sans": ["Manrope", "sans-serif"],
+                        "mono": ["Space Grotesk", "sans-serif"]
+                    },
+                    boxShadow: {
+                        "bento": "0 10px 40px -10px rgba(0,0,0,0.04)", /* Very subtle, soft elevation */
+                        "button": "0 4px 14px 0 rgba(0,0,0,0.1)"
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        body {
+            background-color: theme('colors.bg-main');
+            color: theme('colors.text-primary');
+        }
+        
+        .mask-bottom-fade {
+            -webkit-mask-image: linear-gradient(to bottom, black 65%, transparent 95%);
+            mask-image: linear-gradient(to bottom, black 65%, transparent 95%);
+        }
 
-            <div class="nav-links">
-                <a href="#features">Features</a>
-                <a href="#protocols">Protocols</a>
-                <a href="#feedback">Feedback</a>
+        .hover-lift {
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -8px rgba(0,0,0,0.15);
+        }
+    </style>
+</head>
+
+<body class="antialiased selection:bg-gray-200 selection:text-black font-sans">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-bg-main/80 backdrop-blur-xl border-b border-border-subtle transition-all">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center h-24">
+            <div class="flex items-center gap-4">
+                <img src="./assets/logo.webp" alt="Equilibrium Logo" class="h-10 w-auto rounded-xl">
+                <div class="font-serif text-3xl font-medium tracking-tight">Equilibrium.</div>
             </div>
+            <ul class="hidden md:flex gap-10 items-center">
+                <li><a class="font-mono text-sm font-bold text-text-secondary hover:text-text-primary transition-colors tracking-widest uppercase" href="#features">Features</a></li>
+                <li><a class="font-mono text-sm font-bold text-text-secondary hover:text-text-primary transition-colors tracking-widest uppercase" href="#contact">Contact</a></li>
+            </ul>
         </div>
     </nav>
 
-    <header class="equilibrium-container hero">
-        <div class="ticker">EST. <span id="launch-year">2026</span> • SYSTEM_LIVE</div>
-        <h1>Command your <span class="gradient-text">Capital</span></h1>
-        <p>Achieve financial sovereignty through tactical expense strategy, predictive forecasting, and the global Vanguard standings.</p>
-        
-        <div class="hero-actions" id="hero-actions" style="margin-top: 40px; display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; align-items: center;">
-            <a href="#" class="store-badge">
-                <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&amp;releaseDate=1310601600&h=90eb9170560b0805c6d32aa6c3d18392" alt="Download on the App Store" style="height: 44px;">
-            </a>
-            <a href="#" class="store-badge">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" style="height: 44px;">
-            </a>
+    <!-- Hero Section -->
+    <header class="relative pt-32 md:pt-40 overflow-hidden flex flex-col lg:flex-row items-center justify-between max-w-7xl mx-auto px-6 md:px-12 gap-12 lg:gap-0">
+        <div class="flex-1 relative z-10 flex flex-col items-center lg:items-start text-center lg:text-left w-full">
+            <div class="inline-block px-4 py-2 bg-white rounded-full font-mono text-xs font-bold text-text-secondary uppercase tracking-[0.2em] mb-8 border border-border-subtle shadow-sm">
+                The Financial Antidote
+            </div>
+            
+            <h1 class="font-serif text-5xl md:text-7xl lg:text-[5rem] font-medium text-text-primary leading-[1.05] tracking-tight mb-6 max-w-3xl">
+                Tranquility in every transaction.
+            </h1>
+            
+            <p class="font-sans text-lg text-text-secondary max-w-lg mb-8 leading-relaxed">
+                Absolute financial clarity without the noise. Transform your wealth management into a seamless, mindful journey.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start w-full sm:w-auto">
+                <button class="bg-text-primary text-white px-8 py-4 rounded-full font-mono text-sm font-bold tracking-widest uppercase flex items-center justify-center gap-3 hover-lift shadow-button">
+                    <i class="fa-brands fa-apple text-[22px]"></i>
+                    App Store
+                </button>
+                <button class="bg-white text-text-primary border border-border-subtle px-8 py-4 rounded-full font-mono text-sm font-bold tracking-widest uppercase flex items-center justify-center gap-3 hover-lift shadow-sm">
+                    <i class="fa-brands fa-google-play text-[20px]"></i>
+                    Google Play
+                </button>
+            </div>
+        </div>
+
+        <!-- Hero Image -->
+        <div class="flex-1 w-full relative flex justify-center lg:justify-end items-center mt-12 lg:mt-0">
+            <img alt="Equilibrium App Concept" 
+                 class="relative z-10 w-full max-w-[550px] h-auto object-contain drop-shadow-2xl translate-x-4 md:translate-x-12 lg:-translate-y-8" 
+                 src="./assets/screen.png" />
         </div>
     </header>
 
-    <main class="equilibrium-container">
-        <section class="modules" id="features">
-            <div class="module-card">
-                <div class="device-frame">
-                    <img src="assets/dashboard.png" alt="Equilibrium Dashboard">
-                    <div class="frame-glow"></div>
-                </div>
-                <h3>CyberPulse Dashboard</h3>
-                <p>A multi-layered, tactile uplink of your current fiscal health. Real-time synchronization for your spending sectors.</p>
-            </div>
-            <div class="module-card">
-                <div class="device-frame" style="border-color: var(--secondary);">
-                    <img src="assets/fortune.png" alt="Fortune Teller Analytics">
-                    <div class="frame-glow" style="background: radial-gradient(circle at 50% 0%, var(--secondary), transparent 70%); opacity: 0.1;"></div>
-                </div>
-                <h3>The Fortune Oracle</h3>
-                <p>Scan your spending velocity to forecast exactly when you'll hit your limit—or when you'll achieve your savings goals.</p>
-            </div>
-            <div class="module-card">
-                <div class="device-frame" style="border-color: var(--tertiary);">
-                    <img src="assets/summit.png" alt="The Summit Leaderboard">
-                    <div class="frame-glow" style="background: radial-gradient(circle at 50% 0%, var(--tertiary), transparent 70%); opacity: 0.1;"></div>
-                </div>
-                <h3>Vanguard Summit</h3>
-                <p>Calibrate your performance against the Equilibrium Elite. Climb the ranks from Initiate to Sovereign.</p>
-            </div>
-        </section>
-
-        <section class="protocols" id="protocols">
-            <h2 style="text-align: center; margin-bottom: 60px;">System <span class="gradient-text">Protocols</span></h2>
-            <div class="protocol-grid">
-                <div class="protocol-cell">
-                    <h4>Privacy Architecture</h4>
-                    <p>Is my financial data secure?</p>
-                    <div class="protocol-answer">Your fiscal intelligence is protected by industry-standard TLS encryption during uplink and secure database isolation. We prioritize operative privacy through audited vault protocols.</div>
-                </div>
-                <div class="protocol-cell">
-                    <h4>The Fortune Oracle</h4>
-                    <p>How does the forecasting engine work?</p>
-                    <div class="protocol-answer">Equilibrium scans your spending velocity to identify burn patterns, forecasting exactly when your capital shields will deplete.</div>
-                </div>
-                <div class="protocol-cell">
-                    <h4>Global Standings</h4>
-                    <p>How do I climb the Vanguard Summit?</p>
-                    <div class="protocol-answer">Climbing the ranks requires consistent financial discipline. Operatives who stay in "Equilibrium" Status the longest achieve Sovereign status.</div>
-                </div>
-            </div>
-        </section>
-
-        <section class="feedback" id="feedback">
-            <h2 style="text-align: center; margin-bottom: 40px;">Share Your <span class="gradient-text">Insights</span></h2>
-            <p style="text-align: center; color: var(--text-muted); margin-bottom: 60px; max-width: 600px; margin-left: auto; margin-right: auto;">
-                Help us refine Equilibrium. Whether you have a feature suggestion or found a bug, your feedback is essential for building the ultimate financial command center.
-            </p>
+    <!-- Journey Timeline Section -->
+    <section class="py-32 bg-bg-main relative overflow-hidden" id="features">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
             
-            <form id="feedback-form" class="feedback-form">
-                <div class="form-row">
-                    <div class="input-group">
-                        <label>Your Name</label>
-                        <input type="text" id="fb-name" required placeholder="e.g. John Doe">
-                    </div>
-                    <div class="input-group">
-                        <label>Email Address</label>
-                        <input type="email" id="fb-email" required placeholder="john@example.com">
-                    </div>
-                </div>
-                <div class="input-group">
-                    <label>Your Message</label>
-                    <textarea id="fb-message" required placeholder="Tell us what's on your mind..."></textarea>
-                </div>
-                <button type="submit" class="btn-primary" style="width: 100%; cursor: pointer;">Submit Feedback</button>
-                <div id="fb-status" class="fb-status"></div>
-            </form>
-        </section>
-    </main>
-
-    <footer>
-        <div class="equilibrium-container">
-            <div class="footer-links">
-                <a href="privacy.html">Privacy Protocols</a>
-                <a href="terms.html">Terms of Service</a>
-                <a href="#">Support Node</a>
+            <div class="mb-32 text-center">
+                <h2 class="font-serif text-4xl md:text-5xl font-medium tracking-tight text-text-primary mb-4">A unified financial journey.</h2>
+                <p class="font-sans text-lg text-text-secondary max-w-2xl mx-auto">Everything you need to master your wealth, seamlessly connected along one path.</p>
             </div>
-            <p class="copyright">© <span id="copyright-year">2026</span> Equilibrium Corp • Production Uplink Active</p>
+
+            <!-- The Timeline Container -->
+            <div id="timeline-container" class="relative max-w-5xl mx-auto">
+                <!-- Dynamic SVG Winding Path -->
+                <svg id="timeline-svg" class="absolute top-0 left-0 w-full h-full z-0 hidden sm:block pointer-events-none">
+                    <path id="timeline-path" fill="none" stroke="#0A0A0A" stroke-width="4" stroke-linecap="round" />
+                </svg>
+
+                <div class="space-y-12 md:space-y-24 relative z-10">
+                    
+                    <!-- Branch 1: Absolute Clarity (Text Left, Image Right) -->
+                    <div class="relative flex flex-col md:flex-row w-full items-center group bg-white md:bg-transparent rounded-3xl md:rounded-none shadow-bento md:shadow-none p-8 md:p-0">
+                        <!-- Node -->
+                        <div class="timeline-node hidden md:flex absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-6 h-6 bg-white border-[4px] border-text-primary rounded-full z-10 items-center justify-center shadow-lg transition-transform group-hover:scale-150 duration-500"></div>
+
+                        <!-- Content (Text Left) -->
+                        <div class="w-full md:w-1/2 md:pr-16 lg:pr-24 flex flex-col items-center md:items-start text-center md:text-left relative z-10">
+                            <div class="font-mono text-xs font-bold text-text-secondary uppercase tracking-[0.2em] mb-4">Panoramic View</div>
+                            <h3 class="font-serif text-3xl md:text-4xl lg:text-5xl font-medium text-text-primary leading-tight mb-6">Absolute Clarity.</h3>
+                            <p class="font-sans text-text-secondary leading-relaxed text-lg mb-0">
+                                See your safe-to-spend allocation at a glance with our signature Zen-ring. No overwhelming spreadsheets, just the essential truth.
+                            </p>
+                        </div>
+                        
+                        <!-- Floating Image (Right) -->
+                        <div class="w-full md:w-1/2 md:pr-8 lg:pr-16 flex justify-center md:justify-end mt-12 md:mt-0 relative z-10">
+                            <img alt="Dashboard" class="w-[90%] max-w-[360px] h-auto object-contain mix-blend-multiply transition-transform duration-700 ease-out group-hover:-translate-y-4 mask-bottom-fade scale-100 md:scale-[1.15] translate-x-12 md:translate-x-40 origin-bottom" src="./assets/hero_image.png" />
+                        </div>
+                    </div>
+
+                    <!-- Branch 2: Voice AI (Image Left, Text Right) -->
+                    <div class="relative flex flex-col md:flex-row w-full items-center group bg-white md:bg-transparent rounded-3xl md:rounded-none shadow-bento md:shadow-none p-8 md:p-0">
+                        <!-- Node -->
+                        <div class="timeline-node hidden md:flex absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-6 h-6 bg-white border-[4px] border-text-primary rounded-full z-10 items-center justify-center shadow-lg transition-transform group-hover:scale-150 duration-500"></div>
+
+                        <!-- Floating Image (Left) -->
+                        <div class="w-full md:w-1/2 md:pl-8 lg:pl-16 flex justify-center md:justify-start order-2 md:order-1 mt-12 md:mt-0 relative z-10">
+                            <img alt="Voice Logging" class="w-[90%] max-w-[360px] h-auto object-contain mix-blend-multiply transition-transform duration-700 ease-out group-hover:-translate-y-4 mask-bottom-fade scale-100 md:scale-[1.15] translate-x-12 md:translate-x-16 -rotate-[16deg] origin-bottom" src="./assets/Ai Voice.png" />
+                        </div>
+
+                        <!-- Content (Text Right) -->
+                        <div class="w-full md:w-1/2 md:pl-16 lg:pl-24 flex flex-col items-center md:items-start text-center md:text-left relative z-10 order-1 md:order-2">
+                            <div class="font-mono text-xs font-bold text-text-secondary uppercase tracking-[0.2em] mb-4">Voice AI</div>
+                            <h3 class="font-serif text-3xl md:text-4xl lg:text-5xl font-medium text-text-primary leading-tight mb-6">Frictionless.</h3>
+                            <p class="font-sans text-text-secondary leading-relaxed text-lg mb-0">
+                                Speak naturally. We handle amounts, merchants, and categories instantly. Zero manual entry required.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Branch 3: Predictive Forecasting (Text Left, Image Right) -->
+                    <div class="relative flex flex-col md:flex-row w-full items-center group bg-white md:bg-transparent rounded-3xl md:rounded-none shadow-bento md:shadow-none p-8 md:p-0">
+                        <!-- Node -->
+                        <div class="timeline-node hidden md:flex absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-6 h-6 bg-white border-[4px] border-text-primary rounded-full z-10 items-center justify-center shadow-lg transition-transform group-hover:scale-150 duration-500"></div>
+
+                        <!-- Content (Text Left) -->
+                        <div class="w-full md:w-1/2 md:pr-16 lg:pr-24 flex flex-col items-center md:items-start text-center md:text-left relative z-10">
+                            <div class="font-mono text-xs font-bold text-text-secondary uppercase tracking-[0.2em] mb-4">Oracle</div>
+                            <h3 class="font-serif text-3xl md:text-4xl lg:text-5xl font-medium text-text-primary leading-tight mb-6">See the future.</h3>
+                            <p class="font-sans text-text-secondary leading-relaxed text-lg mb-0">
+                                Anticipate tomorrow's landscape. We project future balances so you're always positioned for success.
+                            </p>
+                        </div>
+                        
+                        <!-- Floating Image (Right) -->
+                        <div class="w-full md:w-1/2 md:pr-8 lg:pr-16 flex justify-center md:justify-end mt-12 md:mt-0 relative z-10">
+                            <img alt="Predictive Forecasting" class="w-[90%] max-w-[360px] h-auto object-contain mix-blend-multiply transition-transform duration-700 ease-out group-hover:-translate-y-4 mask-bottom-fade scale-100 md:scale-[1.15] translate-x-12 md:translate-x-40 origin-bottom" src="./assets/fortune.png" />
+                        </div>
+                    </div>
+
+                    <!-- Branch 4: Gamified Consistency (Image Left, Text Right) -->
+                    <div class="relative flex flex-col md:flex-row w-full items-center group bg-white md:bg-transparent rounded-3xl md:rounded-none shadow-bento md:shadow-none p-8 md:p-0">
+                        <!-- Node -->
+                        <div class="timeline-node hidden md:flex absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-6 h-6 bg-white border-[4px] border-text-primary rounded-full z-10 items-center justify-center shadow-lg transition-transform group-hover:scale-150 duration-500"></div>
+
+                        <!-- Floating Image (Left) -->
+                        <div class="w-full md:w-1/2 md:pl-8 lg:pl-16 flex justify-center md:justify-start order-2 md:order-1 mt-12 md:mt-0 relative z-10">
+                            <img alt="Summit" class="w-[90%] max-w-[360px] h-auto object-contain mix-blend-multiply transition-transform duration-700 ease-out group-hover:-translate-y-4 mask-bottom-fade scale-[1.2] md:scale-[1.3] translate-x-12 md:-translate-x-4 -rotate-[8deg] origin-bottom" src="./assets/summit.png" />
+                        </div>
+
+                        <!-- Content (Text Right) -->
+                        <div class="w-full md:w-1/2 md:pl-16 lg:pl-24 flex flex-col items-center md:items-start text-center md:text-left relative z-10 order-1 md:order-2">
+                            <div class="font-mono text-xs font-bold text-text-secondary uppercase tracking-[0.2em] mb-4">Community</div>
+                            <h3 class="font-serif text-3xl md:text-4xl lg:text-5xl font-medium text-text-primary leading-tight mb-6">Make saving rewarding.</h3>
+                            <p class="font-sans text-text-secondary leading-relaxed text-lg mb-0">
+                                Ascend 'The Summit'. Compare your discipline globally and turn saving into a highly motivating shared achievement.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Feedback -->
+    <section id="contact" class="py-32 bg-bg-card border-t border-border-subtle">
+        <div class="max-w-3xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="font-serif text-4xl md:text-5xl font-medium text-text-primary mb-6">Connect with our team.</h2>
+                <p class="font-sans text-lg text-text-secondary">
+                    Have feedback, a feature request, or simply want to share your experience? We read every message to ensure Equilibrium remains your perfect financial sanctuary.
+                </p>
+            </div>
+            
+            <form class="flex flex-col gap-6 max-w-xl mx-auto">
+                <div class="flex flex-col sm:flex-row gap-6">
+                    <input class="flex-1 bg-bg-main border border-border-subtle focus:border-text-primary focus:ring-0 px-6 py-4 rounded-2xl text-text-primary font-sans placeholder-text-secondary transition-colors" placeholder="Your name" type="text" required />
+                    <input class="flex-1 bg-bg-main border border-border-subtle focus:border-text-primary focus:ring-0 px-6 py-4 rounded-2xl text-text-primary font-sans placeholder-text-secondary transition-colors" placeholder="Email address" type="email" required />
+                </div>
+                <textarea class="w-full bg-bg-main border border-border-subtle focus:border-text-primary focus:ring-0 px-6 py-4 rounded-2xl text-text-primary font-sans placeholder-text-secondary transition-colors min-h-[150px] resize-y" placeholder="How can we improve your financial journey?" required></textarea>
+                <button class="bg-text-primary text-white px-8 py-4 rounded-full font-mono text-sm font-bold tracking-widest uppercase hover:bg-black transition-colors shadow-button mt-4" type="button">
+                    Send Message
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="w-full py-12 bg-bg-main border-t border-border-subtle">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="font-serif text-2xl font-medium text-text-primary">Equilibrium.</div>
+            <div class="flex gap-8 flex-wrap justify-center md:justify-end">
+                <a class="font-mono text-xs font-bold tracking-widest uppercase text-text-secondary hover:text-text-primary transition-colors" href="privacy.html">Privacy</a>
+                <a class="font-mono text-xs font-bold tracking-widest uppercase text-text-secondary hover:text-text-primary transition-colors" href="terms.html">Terms</a>
+                <a class="font-mono text-xs font-bold tracking-widest uppercase text-text-secondary hover:text-text-primary transition-colors" href="delete-account.html">Data Deletion</a>
+                <a class="font-mono text-xs font-bold tracking-widest uppercase text-text-secondary hover:text-text-primary transition-colors" href="mailto:hq.equilibrium.ai@gmail.com">Contact</a>
+            </div>
         </div>
     </footer>
 
+    <!-- Timeline Animation Script -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const currentYear = new Date().getFullYear();
-            const launchYear = document.getElementById('launch-year');
-            const copyrightYear = document.getElementById('copyright-year');
-            if (launchYear) launchYear.textContent = currentYear;
-            if (copyrightYear) copyrightYear.textContent = currentYear;
-
-            // Feedback Form Logic
-            const feedbackForm = document.getElementById('feedback-form');
-            const fbStatus = document.getElementById('fb-status');
-
-            if (feedbackForm) {
-                feedbackForm.addEventListener('submit', async (e) => {
-                    e.preventDefault();
+            const container = document.getElementById('timeline-container');
+            const path = document.getElementById('timeline-path');
+            const nodes = document.querySelectorAll('.timeline-node');
+            
+            function drawCurvyTimeline() {
+                if (!container || !path || nodes.length === 0 || window.innerWidth < 640) return;
+                
+                const containerRect = container.getBoundingClientRect();
+                let d = '';
+                
+                nodes.forEach((node, index) => {
+                    const rect = node.getBoundingClientRect();
+                    const x = rect.left - containerRect.left + rect.width / 2;
+                    const y = rect.top - containerRect.top + rect.height / 2;
                     
-                    const name = document.getElementById('fb-name').value;
-                    const email = document.getElementById('fb-email').value;
-                    const message = document.getElementById('fb-message').value;
-                    const submitBtn = feedbackForm.querySelector('button');
-
-                    // Reset status and disable button
-                    fbStatus.className = 'fb-status';
-                    fbStatus.textContent = 'Sending your feedback...';
-                    fbStatus.style.display = 'block';
-                    submitBtn.disabled = true;
-                    submitBtn.style.opacity = '0.5';
-
-                    // PRODUCTION UPLINK: Secure Feedback Node 
-                    const API_BASE = 'https://api.hqequilibrium.com/api/v1';
-
-                    try {
-                        const response = await fetch(`${API_BASE}/feedback`, {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json'
-                            },
-                            body: JSON.stringify({ name, email, message })
-                        });
-
-                        const data = await response.json();
-
-                        if (response.ok) {
-                            fbStatus.className = 'fb-status success';
-                            fbStatus.textContent = 'Feedback submitted! Thank you for helping us improve Equilibrium.';
-                            feedbackForm.reset();
-                        } else {
-                            throw new Error(data.message || 'Submission interrupted');
-                        }
-                    } catch (error) {
-                        fbStatus.className = 'fb-status error';
-                        fbStatus.textContent = `Error: ${error.message}`;
-                    } finally {
-                        submitBtn.disabled = false;
-                        submitBtn.style.opacity = '1';
+                    if (index === 0) {
+                        d += `M ${x} 0 L ${x} ${y} `;
+                    } else {
+                        const prevNode = nodes[index - 1];
+                        const prevRect = prevNode.getBoundingClientRect();
+                        const prevX = prevRect.left - containerRect.left + prevRect.width / 2;
+                        const prevY = prevRect.top - containerRect.top + prevRect.height / 2;
+                        
+                        // Use constant vertical handles for mathematically perfect C1 continuity through nodes
+                        const HANDLE_Y = 120;
+                        const dx = (index % 2 === 1) ? 120 : -120; 
+                        
+                        const cp1x = prevX + dx;
+                        const cp1y = prevY + HANDLE_Y;
+                        
+                        const cp2x = x + dx;
+                        const cp2y = y - HANDLE_Y;
+                        
+                        d += `C ${cp1x} ${cp1y}, ${cp2x} ${cp2y}, ${x} ${y} `;
+                    }
+                    
+                    if (index === nodes.length - 1) {
+                        d += `L ${x} ${container.offsetHeight} `;
                     }
                 });
+                
+                path.setAttribute('d', d);
+                
+                // Initialize scroll animation
+                const length = path.getTotalLength();
+                path.style.strokeDasharray = length;
+                path.style.strokeDashoffset = length;
+                path.style.transition = 'stroke-dashoffset 0.1s ease-out';
+                
+                updateScroll();
             }
+            
+            function updateScroll() {
+                if (!path || window.innerWidth < 640) return;
+                const rect = container.getBoundingClientRect();
+                const viewportHeight = window.innerHeight;
+                
+                // Start drawing when container enters viewport, finish when it leaves
+                const scrollStart = rect.top - viewportHeight + 300;
+                const scrollEnd = rect.bottom - viewportHeight / 2;
+                
+                let progress = -scrollStart / (scrollEnd - scrollStart);
+                progress = Math.max(0, Math.min(1, progress));
+                
+                const length = path.getTotalLength();
+                path.style.strokeDashoffset = length * (1 - progress);
+            }
+            
+            window.addEventListener('resize', drawCurvyTimeline);
+            window.addEventListener('scroll', updateScroll);
+            
+            // Draw initially
+            setTimeout(drawCurvyTimeline, 200);
         });
     </script>
 </body>
