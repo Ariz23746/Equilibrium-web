@@ -195,6 +195,62 @@
             
             // Draw initially
             setTimeout(drawCurvyTimeline, 200);
+
+            // Feedback Form Logic
+            const feedbackForm = document.getElementById('feedback-form');
+            const fbStatus = document.getElementById('fb-status');
+
+            if (feedbackForm) {
+                feedbackForm.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    
+                    const name = document.getElementById('fb-name').value;
+                    const email = document.getElementById('fb-email').value;
+                    const message = document.getElementById('fb-message').value;
+                    const submitBtn = feedbackForm.querySelector('button');
+
+                    // Reset status and disable button
+                    fbStatus.classList.remove('hidden', 'text-red-500', 'text-green-500');
+                    fbStatus.classList.add('text-text-primary');
+                    fbStatus.textContent = 'TRANSMITTING...';
+                    submitBtn.disabled = true;
+                    submitBtn.style.opacity = '0.5';
+
+                    // Dynamic Uplink: Use local backend for testing, prod backend for deployment
+                    const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.protocol === 'file:';
+                    const API_BASE = isLocal 
+                        ? 'http://localhost:4000/api/v1' 
+                        : 'https://api.hqequilibrium.com/api/v1';
+
+                    try {
+                        const response = await fetch(`${API_BASE}/feedback`, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({ name, email, message })
+                        });
+
+                        const data = await response.json();
+
+                        if (response.ok) {
+                            fbStatus.classList.remove('text-text-primary');
+                            fbStatus.classList.add('text-green-500');
+                            fbStatus.textContent = 'Feedback submitted! Thank you.';
+                            feedbackForm.reset();
+                        } else {
+                            throw new Error(data.message || 'Submission interrupted');
+                        }
+                    } catch (error) {
+                        fbStatus.classList.remove('text-text-primary');
+                        fbStatus.classList.add('text-red-500');
+                        fbStatus.textContent = `Error: ${error.message}`;
+                    } finally {
+                        submitBtn.disabled = false;
+                        submitBtn.style.opacity = '1';
+                    }
+                });
+            }
         });
     </script>
 </body>
