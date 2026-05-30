@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Equilibrium - Financial Clarity</title>
-    
+
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
-    
+
     <!-- Equilibrium Native App Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&amp;family=Space+Grotesk:wght@400;500;700&amp;display=swap" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&amp;family=Space+Grotesk:wght@400;500;700&amp;display=swap"
+        rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <script id="tailwind-config">
         tailwind.config = {
             theme: {
@@ -20,10 +23,10 @@
                     colors: {
                         "bg-main": "#FCFCFD",     /* Ultra soft off-white canvas */
                         "bg-card": "#FFFFFF",     /* Pure white for bento boxes */
-                        
+
                         "text-primary": "#0A0A0A", /* Softer black for extreme legibility */
                         "text-secondary": "#6B7280", /* Elegant slate grey */
-                        
+
                         "border-subtle": "#F3F4F6",
                     },
                     fontFamily: {
@@ -66,12 +69,17 @@
     <nav class="fixed top-0 w-full z-50 bg-bg-main/80 backdrop-blur-xl border-b border-border-subtle transition-all">
         <div class="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center h-24">
             <a href="#" class="flex items-center gap-4 group">
-                <img src="./assets/logo.webp" alt="Equilibrium Logo" class="h-10 w-auto rounded-xl group-hover:opacity-80 transition-opacity">
-                <div class="font-serif text-3xl font-medium tracking-tight group-hover:text-text-secondary transition-colors">Equilibrium.</div>
+                <img src="./assets/logo.webp" alt="Equilibrium Logo"
+                    class="h-10 w-auto rounded-xl group-hover:opacity-80 transition-opacity">
+                <div
+                    class="font-serif text-3xl font-medium tracking-tight group-hover:text-text-secondary transition-colors">
+                    Equilibrium.</div>
             </a>
             <ul class="hidden md:flex gap-10 items-center">
-                <li><a class="font-mono text-sm font-bold text-text-secondary hover:text-text-primary transition-colors tracking-widest uppercase" href="#features">Features</a></li>
-                <li><a class="font-mono text-sm font-bold text-text-secondary hover:text-text-primary transition-colors tracking-widest uppercase" href="#contact">Contact</a></li>
+                <li><a class="font-mono text-sm font-bold text-text-secondary hover:text-text-primary transition-colors tracking-widest uppercase"
+                        href="#features">Features</a></li>
+                <li><a class="font-mono text-sm font-bold text-text-secondary hover:text-text-primary transition-colors tracking-widest uppercase"
+                        href="#contact">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -125,10 +133,14 @@
         <div class="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row justify-between items-center gap-6">
             <div class="font-serif text-2xl font-medium text-text-primary">Equilibrium.</div>
             <div class="flex gap-8 flex-wrap justify-center md:justify-end">
-                <a class="font-mono text-xs font-bold tracking-widest uppercase text-text-secondary hover:text-text-primary transition-colors" href="privacy.html">Privacy</a>
-                <a class="font-mono text-xs font-bold tracking-widest uppercase text-text-secondary hover:text-text-primary transition-colors" href="terms.html">Terms</a>
-                <a class="font-mono text-xs font-bold tracking-widest uppercase text-text-secondary hover:text-text-primary transition-colors" href="delete-account.html">Data Deletion</a>
-                <a class="font-mono text-xs font-bold tracking-widest uppercase text-text-secondary hover:text-text-primary transition-colors" href="mailto:hq.equilibrium.ai@gmail.com">Contact</a>
+                <a class="font-mono text-xs font-bold tracking-widest uppercase text-text-secondary hover:text-text-primary transition-colors"
+                    href="privacy.html">Privacy</a>
+                <a class="font-mono text-xs font-bold tracking-widest uppercase text-text-secondary hover:text-text-primary transition-colors"
+                    href="terms.html">Terms</a>
+                <a class="font-mono text-xs font-bold tracking-widest uppercase text-text-secondary hover:text-text-primary transition-colors"
+                    href="delete-account.html">Data Deletion</a>
+                <a class="font-mono text-xs font-bold tracking-widest uppercase text-text-secondary hover:text-text-primary transition-colors"
+                    href="mailto:hq.equilibrium.ai@gmail.com">Contact</a>
             </div>
         </div>
     </footer>
@@ -139,18 +151,18 @@
             const container = document.getElementById('timeline-container');
             const path = document.getElementById('timeline-path');
             const nodes = document.querySelectorAll('.timeline-node');
-            
+
             function drawCurvyTimeline() {
                 if (!container || !path || nodes.length === 0 || window.innerWidth < 640) return;
-                
+
                 const containerRect = container.getBoundingClientRect();
                 let d = '';
-                
+
                 nodes.forEach((node, index) => {
                     const rect = node.getBoundingClientRect();
                     const x = rect.left - containerRect.left + rect.width / 2;
                     const y = rect.top - containerRect.top + rect.height / 2;
-                    
+
                     if (index === 0) {
                         d += `M ${x} 0 L ${x} ${y} `;
                     } else {
@@ -158,55 +170,63 @@
                         const prevRect = prevNode.getBoundingClientRect();
                         const prevX = prevRect.left - containerRect.left + prevRect.width / 2;
                         const prevY = prevRect.top - containerRect.top + prevRect.height / 2;
-                        
+
                         // Use constant vertical handles for mathematically perfect C1 continuity through nodes
                         const HANDLE_Y = 120;
-                        const dx = (index % 2 === 1) ? 120 : -120; 
-                        
+                        const dx = (index % 2 === 1) ? 120 : -120;
+
                         const cp1x = prevX + dx;
                         const cp1y = prevY + HANDLE_Y;
-                        
+
                         const cp2x = x + dx;
                         const cp2y = y - HANDLE_Y;
-                        
+
                         d += `C ${cp1x} ${cp1y}, ${cp2x} ${cp2y}, ${x} ${y} `;
                     }
-                    
+
                     if (index === nodes.length - 1) {
                         d += `L ${x} ${container.offsetHeight} `;
                     }
                 });
-                
+
                 path.setAttribute('d', d);
-                
+
                 // Initialize scroll animation
                 const length = path.getTotalLength();
                 path.style.strokeDasharray = length;
                 path.style.strokeDashoffset = length;
                 path.style.transition = 'stroke-dashoffset 0.1s ease-out';
-                
+
                 updateScroll();
             }
-            
+
             function updateScroll() {
                 if (!path || window.innerWidth < 640) return;
                 const rect = container.getBoundingClientRect();
                 const viewportHeight = window.innerHeight;
-                
+
                 // Start drawing when container enters viewport, finish when it leaves
                 const scrollStart = rect.top - viewportHeight + 300;
                 const scrollEnd = rect.bottom - viewportHeight / 2;
-                
+
                 let progress = -scrollStart / (scrollEnd - scrollStart);
                 progress = Math.max(0, Math.min(1, progress));
-                
+
                 const length = path.getTotalLength();
                 path.style.strokeDashoffset = length * (1 - progress);
             }
-            
+
             window.addEventListener('resize', drawCurvyTimeline);
             window.addEventListener('scroll', updateScroll);
-            
+            window.addEventListener('load', drawCurvyTimeline);
+
+            if (window.ResizeObserver && container) {
+                const resizeObserver = new ResizeObserver(() => {
+                    drawCurvyTimeline();
+                });
+                resizeObserver.observe(container);
+            }
+
             // Draw initially
             setTimeout(drawCurvyTimeline, 200);
 
@@ -217,7 +237,7 @@
             if (feedbackForm) {
                 feedbackForm.addEventListener('submit', async (e) => {
                     e.preventDefault();
-                    
+
                     const name = document.getElementById('fb-name').value;
                     const email = document.getElementById('fb-email').value;
                     const message = document.getElementById('fb-message').value;
@@ -230,11 +250,7 @@
                     submitBtn.disabled = true;
                     submitBtn.style.opacity = '0.5';
 
-                    // Dynamic Uplink: Use local backend for testing, prod backend for deployment
-                    const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.protocol === 'file:';
-                    const API_BASE = isLocal 
-                        ? 'http://localhost:4000/api/v1' 
-                        : 'https://api.hqequilibrium.com/api/v1';
+                    const API_BASE = 'https://api.hqequilibrium.com/api/v1';
 
                     try {
                         const response = await fetch(`${API_BASE}/feedback`, {
@@ -268,4 +284,5 @@
         });
     </script>
 </body>
+
 </html>

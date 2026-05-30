@@ -402,6 +402,14 @@
 
             window.addEventListener('resize', drawCurvyTimeline);
             window.addEventListener('scroll', updateScroll);
+            window.addEventListener('load', drawCurvyTimeline);
+
+            if (window.ResizeObserver && container) {
+                const resizeObserver = new ResizeObserver(() => {
+                    drawCurvyTimeline();
+                });
+                resizeObserver.observe(container);
+            }
 
             // Draw initially
             setTimeout(drawCurvyTimeline, 200);
