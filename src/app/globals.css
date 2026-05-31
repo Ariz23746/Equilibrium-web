@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg-main: #FCFCFD;
+  --color-bg-card: #FFFFFF;
+  --color-text-primary: #0A0A0A;
+  --color-text-secondary: #6B7280;
+  --color-border-subtle: #F3F4F6;
+  
+  --font-serif: "Newsreader", serif;
+  --font-sans: "Manrope", sans-serif;
+  --font-mono: "Space Grotesk", sans-serif;
+
+  --shadow-bento: 0 10px 40px -10px rgba(0,0,0,0.04);
+  --shadow-button: 0 4px 14px 0 rgba(0,0,0,0.1);
+}
+
+body {
+  background-color: var(--color-bg-main);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+}
+
+.mask-bottom-fade {
+  -webkit-mask-image: linear-gradient(to bottom, black 65%, transparent 95%);
+  mask-image: linear-gradient(to bottom, black 65%, transparent 95%);
+}
+
+.hover-lift {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px -8px rgba(0,0,0,0.15);
+}
