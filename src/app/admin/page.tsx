@@ -23,7 +23,8 @@ export default function AdminLogin() {
     setError("");
 
     try {
-      const res = await fetch("http://localhost:4000/api/v1/admin/login", {
+      const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";
+      const res = await fetch(`${API_URL}/api/v1/admin/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

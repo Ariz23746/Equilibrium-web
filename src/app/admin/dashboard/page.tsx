@@ -22,9 +22,11 @@ export default function AdminDashboard() {
   const [totalPages, setTotalPages] = useState(1);
   const router = useRouter();
 
+  const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";
+
   const fetchFlags = async (page = 1) => {
     try {
-      const res = await fetch(`http://localhost:4000/api/v1/flags?page=${page}&limit=10`);
+      const res = await fetch(`${API_URL}/api/v1/flags?page=${page}&limit=10`);
       const data = await res.json();
       if (res.ok) {
         setFlags(data.data.flags);
@@ -57,7 +59,7 @@ export default function AdminDashboard() {
         prev.map((f) => (f.key === key ? { ...f, isEnabled: !currentValue } : f))
       );
 
-      const res = await fetch(`http://localhost:4000/api/v1/flags/${key}`, {
+      const res = await fetch(`${API_URL}/api/v1/flags/${key}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -85,7 +87,7 @@ export default function AdminDashboard() {
 
     const token = sessionStorage.getItem("adminToken");
     try {
-      const res = await fetch(`http://localhost:4000/api/v1/flags/${key}`, {
+      const res = await fetch(`${API_URL}/api/v1/flags/${key}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -122,7 +124,7 @@ export default function AdminDashboard() {
     }];
 
     try {
-      const res = await fetch("http://localhost:4000/api/v1/flags/seed", {
+      const res = await fetch(`${API_URL}/api/v1/flags/seed`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
