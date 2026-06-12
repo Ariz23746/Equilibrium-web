@@ -16,14 +16,24 @@ export default function HeroSection() {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start w-full sm:w-auto">
-          <button className="bg-text-primary text-white px-8 py-4 rounded-full font-mono text-sm font-bold tracking-widest uppercase flex items-center justify-center gap-3 hover-lift shadow-button">
+          <a
+            href="https://developer.apple.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-text-primary text-white px-8 py-4 rounded-full font-mono text-sm font-bold tracking-widest uppercase flex items-center justify-center gap-3 hover-lift shadow-button"
+          >
             <i className="fa-brands fa-apple text-[22px]"></i>
             App Store
-          </button>
-          <button className="bg-white text-text-primary border border-border-subtle px-8 py-4 rounded-full font-mono text-sm font-bold tracking-widest uppercase flex items-center justify-center gap-3 hover-lift shadow-sm">
+          </a>
+          <a
+            href="https://play.google.com/store/apps/details?id=com.arizkhan.equilibrium"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-white text-text-primary border border-border-subtle px-8 py-4 rounded-full font-mono text-sm font-bold tracking-widest uppercase flex items-center justify-center gap-3 hover-lift shadow-sm"
+          >
             <i className="fa-brands fa-google-play text-[20px]"></i>
             Google Play
-          </button>
+          </a>
         </div>
       </div>
 
