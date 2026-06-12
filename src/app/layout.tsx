@@ -20,9 +20,6 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   title: "Equilibrium - Financial Clarity",
   description: "Tranquility in every transaction. The definitive high-fidelity financial application.",
-  icons: {
-    icon: "/favicon.png?v=2",
-  },
 };
 
 export default function RootLayout({
