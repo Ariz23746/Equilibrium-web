@@ -59,7 +59,7 @@ export default function AdminLogin() {
         
         <div className="relative z-10 flex flex-col items-center mb-10">
           <div className="w-16 h-16 rounded-2xl mb-6 shadow-[0_0_20px_rgba(204,255,0,0.3)] overflow-hidden">
-            <img src="/assets/logo.webp" alt="Equilibrium Logo" className="w-full h-full object-cover" />
+            <img src="/assets/logo.png" alt="Equilibrium Logo" className="w-full h-full object-cover" />
           </div>
           <h1 className="font-serif text-3xl font-medium text-white mb-2">Command Center</h1>
           <p className="text-[#6B7280] text-sm">Authenticate to access feature controls.</p>

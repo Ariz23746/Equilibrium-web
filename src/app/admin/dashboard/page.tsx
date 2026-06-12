@@ -163,7 +163,7 @@ export default function AdminDashboard() {
       <header className="border-b border-border-subtle bg-white">
         <div className="max-w-5xl mx-auto px-6 h-20 flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <img src="/assets/logo.webp" alt="Equilibrium Logo" className="h-8 w-auto rounded-lg" />
+            <img src="/assets/logo.png" alt="Equilibrium Logo" className="h-8 w-auto rounded-lg" />
             <h1 className="font-serif text-2xl font-medium tracking-tight">Admin Dashboard</h1>
           </div>
           <div className="flex gap-4">
