@@ -17,7 +17,7 @@ export default function HeroSection() {
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start w-full sm:w-auto">
           <a
-            href="https://developer.apple.com/"
+            href="https://apps.apple.com/us/app/equilibrium-budget-coach/id6778774923"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-text-primary text-white px-8 py-4 rounded-full font-mono text-sm font-bold tracking-widest uppercase flex items-center justify-center gap-3 hover-lift shadow-button"
