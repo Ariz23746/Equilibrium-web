@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Manrope, Newsreader, Space_Grotesk } from "next/font/google";
 import "./globals.css";
+import Analytics from "@/components/layout/Analytics";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -56,6 +57,7 @@ export default function RootLayout({
       {/* suppressHydrationWarning: browser extensions (e.g. ColorZilla adds cz-shortcut-listen) edit <body> before React loads */}
       <body className="min-h-full flex flex-col font-sans bg-bg-main text-text-primary" suppressHydrationWarning>
         {children}
+        <Analytics />
       </body>
     </html>
   );

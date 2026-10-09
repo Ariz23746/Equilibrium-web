@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { GUIDES, getGuide } from "@/content/guides";
 import GuideBlocks from "@/components/guides/GuideBlocks";
 import StoreButtons from "@/components/guides/StoreButtons";
+import PrintableLink from "@/components/guides/PrintableLink";
 
 const SITE = "https://www.hqequilibrium.com";
 
@@ -69,9 +70,9 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
       <p className="text-xl text-text-secondary leading-relaxed mb-10">{guide.intro}</p>
 
       {/* Printable, near the top: it's what most Pinterest visitors came for */}
-      <a
+      <PrintableLink
         href={guide.printable.file}
-        download
+        guide={guide.slug}
         className="block rounded-3xl bg-bg-card border border-border-subtle shadow-bento p-6 md:p-7 mb-14 hover-lift"
       >
         <p className="font-mono text-[11px] font-bold uppercase tracking-widest text-text-secondary mb-2">
@@ -82,7 +83,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
         <p className="mt-4 font-mono text-xs font-bold uppercase tracking-widest">
           <i className="fa-solid fa-arrow-down mr-2"></i>Download, no sign-up
         </p>
-      </a>
+      </PrintableLink>
 
       <div className="space-y-14">
         {guide.sections.map((s) => (

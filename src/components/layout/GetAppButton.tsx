@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { APP_STORE_URL, PLAY_STORE_URL } from "@/content/guides";
+import { playReferrer, track } from "@/lib/analytics";
 
 /**
  * One "Get the app" button that sends iPhone users to the App Store and Android users to
@@ -12,9 +13,10 @@ export default function GetAppButton({ className = "", label = "Get the app" }: 
     const ua = navigator.userAgent || "";
     const isIOS = /iPhone|iPad|iPod/i.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
     const isAndroid = /Android/i.test(ua);
+    track("get_app_clicked", { platform: isIOS ? "ios" : isAndroid ? "android" : "desktop" });
     if (isIOS || isAndroid) {
       e.preventDefault();
-      const play = `${PLAY_STORE_URL}&referrer=${encodeURIComponent("utm_source=website&utm_medium=nav&utm_campaign=get_app")}`;
+      const play = `${PLAY_STORE_URL}&referrer=${encodeURIComponent(playReferrer("nav_get_app"))}`;
       window.location.href = isIOS ? APP_STORE_URL : play;
     }
   };

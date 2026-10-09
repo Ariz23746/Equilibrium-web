@@ -62,7 +62,7 @@ export default function PrivacyPage() {
         <li><strong>Amazon Web Services</strong>: hosts our server.</li>
         <li><strong>MongoDB Atlas</strong>: hosts the database with your account and expenses.</li>
         <li><strong>Google Gemini</strong>: reads AI log text to extract expenses.</li>
-        <li><strong>PostHog</strong>: product analytics (feature usage, crashes and errors).</li>
+        <li><strong>PostHog</strong>: analytics for the app (feature usage, crashes and errors) and this website (pages visited, the link or campaign you came from, download and store-button clicks). The website records anonymous visits only and no session recordings.</li>
         <li><strong>RevenueCat</strong>, with Apple and Google: subscription purchases and status.</li>
         <li><strong>Cloudinary</strong>: stores profile pictures.</li>
         <li><strong>Resend</strong>: sends sign-in codes and service emails.</li>
