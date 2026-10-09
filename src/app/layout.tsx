@@ -28,9 +28,9 @@ export const metadata: Metadata = {
     siteName: "Equilibrium",
     title: "Equilibrium: Track spending by just saying it",
     description: "Type or say what you spent. See what you can spend today. Free to start, no bank login.",
-    images: [{ url: "/assets/screen.png", width: 1024, height: 1024, alt: "Equilibrium app" }],
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Equilibrium: track spending by just saying it" }],
   },
-  twitter: { card: "summary_large_image" },
+  twitter: { card: "summary_large_image", images: ["/og.png"] },
 };
 
 export default function RootLayout({
