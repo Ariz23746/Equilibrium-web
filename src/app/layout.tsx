@@ -20,6 +20,9 @@ const spaceGrotesk = Space_Grotesk({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.hqequilibrium.com"),
+  verification: {
+    other: { "p:domain_verify": "96168f019aa36ad5c75bf9af2e3b8dab" },
+  },
   title: "Equilibrium: Expense Tracker & Budget Planner, Just Say It",
   description:
     "Track spending by typing or saying it: \"120 petrol, 60 lunch\" and it's logged. See what you can spend today and where your month is heading. Free to start, no bank login.",
