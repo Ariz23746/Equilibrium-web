@@ -1,56 +1,84 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+import { LegalPage } from "@/components/legal/LegalPage";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/delete-account" },
+  title: "Delete Your Account | Equilibrium",
+  description: "How to delete your Equilibrium account and data, in the app or by email, and what gets deleted.",
+};
 
 export default function DeleteAccountPage() {
   return (
-    <>
+    <LegalPage title="Delete your account" updated="9 October 2026">
+      <p>
+        You can delete your Equilibrium account and all the data in it at any time. There are two ways to do it. Deletion is
+        permanent and can&apos;t be undone.
+      </p>
 
-      <main className="pt-40 pb-32 max-w-3xl mx-auto px-6 md:px-12 font-sans min-h-screen">
-        <Link
-          href="/"
-          className="inline-block px-4 py-2 bg-white rounded-full font-mono text-xs font-bold text-text-secondary uppercase tracking-[0.2em] mb-12 border border-border-subtle shadow-sm hover:text-text-primary transition-colors hover-lift"
-        >
-          ← Return Home
-        </Link>
+      <div className="rounded-3xl bg-bg-card border border-border-subtle shadow-bento p-7 md:p-8">
+        <p className="font-mono text-[11px] font-bold uppercase tracking-widest text-text-secondary mb-2">
+          Option 1 · Recommended
+        </p>
+        <p className="font-serif text-2xl text-text-primary mb-4">Delete it in the app</p>
+        <ol className="list-decimal pl-5 space-y-2">
+          <li>Open Equilibrium and go to your <strong>Profile</strong>.</li>
+          <li>
+            Scroll to the bottom and tap <strong>Delete Account &amp; ALL Data</strong>.
+          </li>
+          <li>
+            Tap <strong>Confirm Delete</strong>.
+          </li>
+        </ol>
+        <p className="mt-4 text-base">Your account and data are deleted straight away and you&apos;re signed out.</p>
+      </div>
 
-        <h1 className="font-serif text-4xl md:text-5xl font-medium text-text-primary mb-12 tracking-tight">
-          Account Decommissioning
-        </h1>
+      <div className="rounded-3xl bg-bg-card border border-border-subtle shadow-bento p-7 md:p-8">
+        <p className="font-mono text-[11px] font-bold uppercase tracking-widest text-text-secondary mb-2">Option 2</p>
+        <p className="font-serif text-2xl text-text-primary mb-4">Ask by email</p>
+        <p>
+          No longer have the app? Email{" "}
+          <a href="mailto:hq.equilibrium.ai@gmail.com?subject=Delete%20my%20Equilibrium%20account">
+            hq.equilibrium.ai@gmail.com
+          </a>{" "}
+          from the address you signed up with (or tell us that address), with the subject &ldquo;Delete my account&rdquo;. We
+          delete it within 7 days and reply to confirm.
+        </p>
+        <p className="mt-3 text-base">
+          Signed in with Apple using &ldquo;Hide My Email&rdquo;? Mention that, and we&apos;ll help you find the right account.
+        </p>
+      </div>
 
-        <div className="space-y-8 text-text-secondary text-lg leading-relaxed">
-          <p>You maintain full sovereignty over your data. In accordance with the &quot;Right to be Forgotten,&quot; Equilibrium provides two secure protocols for the permanent erasure of your identity and tactical financial data.</p>
+      <h2>What gets deleted</h2>
+      <ul>
+        <li>Your profile: name, email address, username and profile photo link</li>
+        <li>All your expenses, categories and budgets</li>
+        <li>Your monthly Money Story reports</li>
+        <li>Merchant-to-category shortcuts the app learned for you</li>
+        <li>Feedback you sent from the app</li>
+        <li>Your notification token, so reminders stop</li>
+        <li>Your place on the leaderboard</li>
+      </ul>
 
-          <div className="bg-white border border-border-subtle p-8 rounded-3xl shadow-bento mt-12 mb-8">
-            <h3 className="font-serif text-xl font-medium text-text-primary mb-4">Protocol 01: In-App Deletion (Recommended)</h3>
-            <p className="mb-4 text-text-secondary">For immediate, self-service data erasure:</p>
-            <ol className="list-decimal pl-5 space-y-3 text-text-secondary">
-              <li>Open the <strong className="text-text-primary font-medium">Equilibrium</strong> app on your device.</li>
-              <li>Navigate to the <strong className="text-text-primary font-medium">Command Center</strong> (Profile Screen).</li>
-              <li>Scroll to the bottom and select <strong className="text-text-primary font-medium">&quot;Purge Identity &amp; Tactical Data&quot;</strong>.</li>
-              <li>Confirm the purge on the tactical alert modal.</li>
-            </ol>
-            <p className="mt-6 text-sm text-text-secondary/70 italic">*This will immediately wipe your user profile, expenses, and budgets from our production systems.</p>
-          </div>
+      <h2>What isn&apos;t deleted, and why</h2>
+      <ul>
+        <li>
+          <strong>Subscriptions:</strong> deleting your account does <strong>not</strong> cancel Equilibrium Pro. Cancel it in
+          your App Store or Google Play subscription settings. Apple and Google keep their own purchase records.
+        </li>
+        <li>
+          <strong>Usage analytics:</strong> records of which app features were used (held by PostHog) are deleted
+          automatically within 12 months.
+        </li>
+        <li>
+          <strong>Profile photo file:</strong> if you uploaded a photo, the image file itself is stored with our image host.
+          Mention it in your email and we&apos;ll remove it as well.
+        </li>
+      </ul>
 
-          <div className="bg-white border border-border-subtle p-8 rounded-3xl shadow-bento mb-12">
-            <h3 className="font-serif text-xl font-medium text-text-primary mb-4">Protocol 02: Manual Deletion Request</h3>
-            <p className="mb-4 text-text-secondary">If you no longer have the app installed, you may request manual deletion by contacting our support uplink:</p>
-            <p className="mb-4"><strong className="text-text-primary font-medium">Email:</strong> <a href="mailto:hq.equilibrium.ai@gmail.com" className="text-text-primary underline">hq.equilibrium.ai@gmail.com</a></p>
-            <p className="text-text-secondary">Please include your registered email address and neural alias (username). Requests are typically processed within 48-72 operational hours.</p>
-          </div>
-
-          <h2 className="font-serif text-2xl font-medium text-text-primary mt-12 mb-6">What data is deleted?</h2>
-          <p>When you decommission your account, the following data is permanently purged from our neural network:</p>
-          <ul className="list-disc pl-6 space-y-3 mt-4 text-text-secondary">
-            <li>Full Identity Profile (Email, Username, Avatar)</li>
-            <li>All Transactional Telemetry (Expenses &amp; Categories)</li>
-            <li>Financial Calibration Data (Budgets &amp; Limits)</li>
-            <li>Push Notification Uplink Tokens</li>
-          </ul>
-
-          <p className="mt-16 font-mono text-xs uppercase tracking-widest text-text-secondary">Last Calibrated: April 2026</p>
-        </div>
-      </main>
-
-    </>
+      <p>
+        More about what we collect is in our <Link href="/privacy">Privacy Policy</Link>.
+      </p>
+    </LegalPage>
   );
 }

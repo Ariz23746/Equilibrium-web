@@ -8,6 +8,12 @@ export default function Footer() {
         <div className="flex gap-8 flex-wrap justify-center md:justify-end">
           <Link
             className="font-mono text-xs font-bold tracking-widest uppercase text-text-secondary hover:text-text-primary transition-colors"
+            href="/guides"
+          >
+            Guides
+          </Link>
+          <Link
+            className="font-mono text-xs font-bold tracking-widest uppercase text-text-secondary hover:text-text-primary transition-colors"
             href="/privacy"
           >
             Privacy

@@ -1,48 +1,37 @@
+import StoreButtons from "@/components/guides/StoreButtons";
+import HeroPhone from "@/components/home/HeroPhone";
+import LocalExample from "@/components/home/LocalExample";
+
 export default function HeroSection() {
   return (
-    <header className="relative pt-32 md:pt-40 overflow-hidden flex flex-col lg:flex-row items-center justify-between max-w-7xl mx-auto px-6 md:px-12 gap-12 lg:gap-0">
+    <header className="relative w-full pt-28 md:pt-28 pb-8 overflow-hidden flex flex-col lg:flex-row items-center justify-between max-w-7xl mx-auto px-6 md:px-12 gap-10 lg:gap-16">
       <div className="flex-1 relative z-10 flex flex-col items-center lg:items-start text-center lg:text-left w-full">
-        <div className="inline-block px-4 py-2 bg-white rounded-full font-mono text-xs font-bold text-text-secondary uppercase tracking-[0.2em] mb-8 border border-border-subtle shadow-sm">
-          The Financial Antidote
+        <div className="inline-flex items-center gap-2 px-4 py-2 bg-bg-card rounded-full font-mono text-xs font-bold text-text-secondary uppercase tracking-[0.2em] mb-8 border border-border-subtle shadow-sm">
+          <span className="h-2 w-2 rounded-full bg-brand-lime ring-1 ring-text-primary/20"></span>
+          Expense tracker &amp; budget planner
         </div>
 
         <h1 className="font-serif text-5xl md:text-7xl lg:text-[5rem] font-medium text-text-primary leading-[1.05] tracking-tight mb-6 max-w-3xl">
-          Tranquility in every transaction.
+          Track spending <br className="hidden sm:block" />
+          by just <i>saying it.</i>
         </h1>
 
-        <p className="font-sans text-lg text-text-secondary max-w-lg mb-8 leading-relaxed">
-          Absolute financial clarity without the noise. Transform your wealth management into a seamless, mindful
-          journey.
+        <p className="font-sans text-lg md:text-xl text-text-secondary max-w-lg mb-8 leading-relaxed">
+          Type or say <LocalExample /> and both are logged and sorted. See what you can spend today, and
+          where your month is heading.
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start w-full sm:w-auto">
-          <a
-            href="https://apps.apple.com/us/app/equilibrium-budget-coach/id6778774923"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-text-primary text-white px-8 py-4 rounded-full font-mono text-sm font-bold tracking-widest uppercase flex items-center justify-center gap-3 hover-lift shadow-button"
-          >
-            <i className="fa-brands fa-apple text-[22px]"></i>
-            App Store
-          </a>
-          <a
-            href="https://play.google.com/store/apps/details?id=com.arizkhan.equilibrium"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-white text-text-primary border border-border-subtle px-8 py-4 rounded-full font-mono text-sm font-bold tracking-widest uppercase flex items-center justify-center gap-3 hover-lift shadow-sm"
-          >
-            <i className="fa-brands fa-google-play text-[20px]"></i>
-            Google Play
-          </a>
+        <div id="download" className="scroll-mt-32">
+          <StoreButtons campaign="home_hero" />
         </div>
+
+        <p className="mt-5 font-mono text-xs font-bold uppercase tracking-widest text-text-secondary">
+          Free to start · No bank login
+        </p>
       </div>
 
-      <div className="flex-1 w-full relative flex justify-center lg:justify-end items-center mt-12 lg:mt-0">
-        <img
-          alt="Equilibrium App Concept"
-          className="relative z-10 w-full max-w-[550px] h-auto object-contain drop-shadow-2xl translate-x-4 md:translate-x-12 lg:-translate-y-8"
-          src="/assets/screen.png"
-        />
+      <div className="w-full lg:w-auto lg:shrink-0 relative flex justify-center items-center">
+        <HeroPhone />
       </div>
     </header>
   );

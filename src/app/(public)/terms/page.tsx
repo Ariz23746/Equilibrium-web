@@ -1,43 +1,80 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+import { LegalPage } from "@/components/legal/LegalPage";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/terms" },
+  title: "Terms of Use | Equilibrium",
+  description: "The terms for using Equilibrium and Equilibrium Pro.",
+};
 
 export default function TermsPage() {
   return (
-    <>
+    <LegalPage title="Terms of Use" updated="9 October 2026">
+      <p>
+        These terms apply to the Equilibrium app and website, made by Mohammad Ariz Khan. By using Equilibrium you agree to
+        them. If you downloaded the app from the App Store, Apple&apos;s{" "}
+        <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener noreferrer">
+          standard End User License Agreement
+        </a>{" "}
+        also applies.
+      </p>
 
-      <main className="pt-40 pb-32 max-w-3xl mx-auto px-6 md:px-12 font-sans min-h-screen">
-        <Link
-          href="/"
-          className="inline-block px-4 py-2 bg-white rounded-full font-mono text-xs font-bold text-text-secondary uppercase tracking-[0.2em] mb-12 border border-border-subtle shadow-sm hover:text-text-primary transition-colors hover-lift"
-        >
-          ← Return Home
-        </Link>
+      <h2>1. Using the app</h2>
+      <p>
+        You may use Equilibrium for your personal budgeting. Keep your sign-in secure; you are responsible for activity on
+        your account. Don&apos;t misuse the service, try to break or overload it, or use it for anything illegal.
+      </p>
 
-        <h1 className="font-serif text-4xl md:text-5xl font-medium text-text-primary mb-12 tracking-tight">
-          Terms of Service
-        </h1>
+      <h2>2. Your data</h2>
+      <p>
+        What you log belongs to you. Our <Link href="/privacy">Privacy Policy</Link> explains what we collect and how it is
+        used. You can delete your account and data at any time.
+      </p>
 
-        <div className="space-y-8 text-text-secondary text-lg leading-relaxed">
-          <p>By establishing a neural link with Equilibrium, you agree to the following operational protocols.</p>
+      <h2>3. Equilibrium Pro subscriptions</h2>
+      <ul>
+        <li>Pro is offered as an auto-renewing subscription (monthly or yearly) and may also be offered as a one-time pass.</li>
+        <li>Payment is charged to your Apple ID or Google Play account when you confirm the purchase.</li>
+        <li>
+          Subscriptions renew automatically unless you turn off auto-renew at least 24 hours before the end of the current
+          period. Your account is charged for renewal within 24 hours before the period ends.
+        </li>
+        <li>
+          You can manage or cancel your subscription in your App Store or Google Play account settings. Deleting the app
+          does not cancel a subscription.
+        </li>
+        <li>Refunds are handled by Apple or Google under their policies.</li>
+        <li>The free plan includes a monthly allowance of AI logs; prices and features may change, with notice in the app.</li>
+      </ul>
 
-          <h2 className="font-serif text-2xl font-medium text-text-primary mt-12 mb-6">1. License &amp; Operational Scope</h2>
-          <p>Equilibrium grants you a personal, non-exclusive license to use the Command Center for tracking personal expenses and financial strategy. You are responsible for maintaining the security of your neural alias and keyphrase.</p>
+      <h2>4. Not financial advice</h2>
+      <p>
+        Equilibrium helps you track and plan spending. Forecasts, allowances and insights are estimates based on what you log,
+        and may be wrong. They are not financial, tax or investment advice. Decisions about your money are yours.
+      </p>
 
-          <h2 className="font-serif text-2xl font-medium text-text-primary mt-12 mb-6">2. Data Sovereignty</h2>
-          <p>You maintain full ownership of your financial telemetry. We provide the tools for synchronization and forecasting, but the tactical decisions made based on this data are entirely your own.</p>
+      <h2>5. AI features</h2>
+      <p>
+        AI logging can misread what you type or say. Please check what gets logged; you can edit or delete any expense.
+      </p>
 
-          <h2 className="font-serif text-2xl font-medium text-text-primary mt-12 mb-6">3. Prohibited Conduct</h2>
-          <p>Users are strictly prohibited from attempting to breach the Equilibrium compute nodes, reverse-engineering the synchronization engine, or utilizing the platform for any illegal financial activities.</p>
+      <h2>6. Availability and liability</h2>
+      <p>
+        We work to keep Equilibrium running smoothly but can&apos;t promise it will always be available or error-free. To the
+        extent the law allows, Equilibrium is provided &ldquo;as is&rdquo; and we are not liable for indirect losses arising
+        from its use.
+      </p>
 
-          <h2 className="font-serif text-2xl font-medium text-text-primary mt-12 mb-6">4. Disclaimer of Liability</h2>
-          <p>Equilibrium is a strategic tool, not a financial advisor. We do not guarantee the accuracy of future projections provided by the Fortune Oracle. All financial decisions should be verified against your physical banking records.</p>
+      <h2>7. Ending your use</h2>
+      <p>
+        You can stop using Equilibrium and delete your account at any time. We may suspend accounts that break these terms.
+      </p>
 
-          <h2 className="font-serif text-2xl font-medium text-text-primary mt-12 mb-6">5. Operational Termination</h2>
-          <p>We reserve the right to decommission any account found in violation of these protocols. Users may terminate their mission at any time by requesting account deletion.</p>
-
-          <p className="mt-16 font-mono text-xs uppercase tracking-widest text-text-secondary">Last Calibrated: April 2026</p>
-        </div>
-      </main>
-
-    </>
+      <h2>8. Contact</h2>
+      <p>
+        <a href="mailto:hq.equilibrium.ai@gmail.com">hq.equilibrium.ai@gmail.com</a>
+      </p>
+    </LegalPage>
   );
 }

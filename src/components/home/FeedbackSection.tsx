@@ -13,7 +13,7 @@ export default function FeedbackSection() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setStatus({ type: "loading", text: "TRANSMITTING..." });
+    setStatus({ type: "loading", text: "Sending..." });
 
     const API_BASE = "https://api.hqequilibrium.com/api/v1";
 
@@ -29,15 +29,16 @@ export default function FeedbackSection() {
       const data = await response.json();
 
       if (response.ok) {
-        setStatus({ type: "success", text: "Feedback submitted! Thank you." });
+        setStatus({ type: "success", text: "Thanks! I got your message and will reply soon." });
         setName("");
         setEmail("");
         setMessage("");
       } else {
         throw new Error(data.message || "Submission interrupted");
       }
-    } catch (error: any) {
-      setStatus({ type: "error", text: `Error: ${error.message}` });
+    } catch (error: unknown) {
+      const msg = error instanceof Error ? error.message : "Something went wrong";
+      setStatus({ type: "error", text: `Couldn't send: ${msg}. You can also email hq.equilibrium.ai@gmail.com` });
     }
   };
 
@@ -45,10 +46,10 @@ export default function FeedbackSection() {
     <section id="contact" className="py-32 bg-bg-card border-t border-border-subtle">
       <div className="max-w-3xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="font-serif text-4xl md:text-5xl font-medium text-text-primary mb-6">Connect with our team.</h2>
+          <h2 className="font-serif text-4xl md:text-5xl font-medium text-text-primary mb-6">Talk to the person who builds it.</h2>
           <p className="font-sans text-lg text-text-secondary">
-            Have feedback, a feature request, or simply want to share your experience? We read every message to ensure
-            Equilibrium remains your perfect financial sanctuary.
+            I&apos;m Ariz, and I build Equilibrium on my own. Found a bug, missing a feature, or just want to say what works
+            for you? I read every message and reply myself.
           </p>
         </div>
 
@@ -73,7 +74,7 @@ export default function FeedbackSection() {
           </div>
           <textarea
             className="w-full bg-bg-main border border-border-subtle focus:border-text-primary focus:ring-0 px-6 py-4 rounded-2xl text-text-primary font-sans placeholder-text-secondary transition-colors min-h-[150px] resize-y"
-            placeholder="How can we improve your financial journey?"
+            placeholder="What would make Equilibrium better for you?"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             required
@@ -82,7 +83,7 @@ export default function FeedbackSection() {
           <button
             type="submit"
             disabled={status.type === "loading"}
-            className="bg-text-primary text-white px-8 py-4 rounded-full font-mono text-sm font-bold tracking-widest uppercase hover:bg-black transition-colors shadow-button mt-4 disabled:opacity-50"
+            className="bg-text-primary text-bg-main px-8 py-4 rounded-full font-mono text-sm font-bold tracking-widest uppercase hover:opacity-90 transition-opacity shadow-button mt-4 disabled:opacity-50"
           >
             {status.type === "loading" ? "Sending..." : "Send Message"}
           </button>

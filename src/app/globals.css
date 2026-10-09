@@ -6,13 +6,64 @@
   --color-text-primary: #0A0A0A;
   --color-text-secondary: #6B7280;
   --color-border-subtle: #F3F4F6;
-  
+  /* App brand accent (matches the mobile app's primary lime) */
+  --color-brand-lime: #CCFF00;
+  /* Text on lime surfaces: always dark, in both themes */
+  --color-on-lime: #0A0A0A;
+  /* Surfaces that stay dark in both themes (phones, app CTA box, trust cards) */
+  --color-surface-inverse: #0A0A0A;
+  --color-edge: transparent;
+
   --font-serif: "Newsreader", serif;
   --font-sans: "Manrope", sans-serif;
   --font-mono: "Space Grotesk", sans-serif;
 
-  --shadow-bento: 0 10px 40px -10px rgba(0,0,0,0.04);
-  --shadow-button: 0 4px 14px 0 rgba(0,0,0,0.1);
+  --shadow-bento: 0 10px 40px -10px rgba(0, 0, 0, 0.04);
+  --shadow-button: 0 4px 14px 0 rgba(0, 0, 0, 0.1);
+}
+
+/*
+ * Dark mode: follows the system setting by default; the theme switch in the nav
+ * can force it with <html data-theme="light|dark"> (saved in localStorage).
+ */
+:root {
+  color-scheme: light dark;
+  /* thin outline for dark boxes; only visible on a dark page */
+  --color-edge: transparent;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-bg-main: #0B0B0C;
+    --color-bg-card: #161618;
+    --color-text-primary: #F4F4F5;
+    --color-text-secondary: #A1A1AA;
+    --color-border-subtle: #26262A;
+    --color-surface-inverse: #1A1A1D;
+    --color-edge: rgba(255, 255, 255, 0.12);
+    --shadow-bento: 0 10px 40px -10px rgba(0, 0, 0, 0.6);
+    --shadow-button: 0 4px 14px 0 rgba(0, 0, 0, 0.5);
+  }
+}
+
+:root[data-theme="dark"] {
+  --color-bg-main: #0B0B0C;
+  --color-bg-card: #161618;
+  --color-text-primary: #F4F4F5;
+  --color-text-secondary: #A1A1AA;
+  --color-border-subtle: #26262A;
+  --color-surface-inverse: #1A1A1D;
+  --color-edge: rgba(255, 255, 255, 0.12);
+  --shadow-bento: 0 10px 40px -10px rgba(0, 0, 0, 0.6);
+  --shadow-button: 0 4px 14px 0 rgba(0, 0, 0, 0.5);
 }
 
 body {
@@ -29,7 +80,21 @@ body {
 .hover-lift {
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
 }
+
 .hover-lift:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 24px -8px rgba(0,0,0,0.15);
+  box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.15);
+}
+
+/* Hero phone: new expense rows slide in */
+@keyframes heroRowIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

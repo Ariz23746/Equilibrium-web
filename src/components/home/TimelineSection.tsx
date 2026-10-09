@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import Image from "next/image";
+import { TodayMock, LoggingMock, ForecastMock, HabitMock } from "./FeatureMocks";
 
 export default function TimelineSection() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -103,109 +103,101 @@ export default function TimelineSection() {
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="mb-32 text-center">
           <h2 className="font-serif text-4xl md:text-5xl font-medium tracking-tight text-text-primary mb-4">
-            A unified financial journey.
+            Everything your budget needs.
           </h2>
           <p className="font-sans text-lg text-text-secondary max-w-2xl mx-auto">
-            Everything you need to master your wealth, seamlessly connected along one path.
+            From the moment you spend to the end of the month, in one simple app.
           </p>
         </div>
 
         {/* The Timeline Container */}
         <div ref={containerRef} className="relative max-w-5xl mx-auto">
           {/* Dynamic SVG Winding Path */}
-          <svg className="absolute top-0 left-0 w-full h-full z-0 hidden sm:block pointer-events-none">
-            <path ref={pathRef} fill="none" stroke="#0A0A0A" strokeWidth="4" strokeLinecap="round" />
+          <svg className="absolute top-0 left-0 w-full h-full z-0 hidden sm:block pointer-events-none text-text-primary">
+            <path ref={pathRef} fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
           </svg>
 
           <div className="space-y-12 md:space-y-24 relative z-10">
             {/* Branch 1 */}
-            <div className="relative flex flex-col md:flex-row w-full items-center group bg-white md:bg-transparent rounded-3xl md:rounded-none shadow-bento md:shadow-none p-8 md:p-0">
-              <div className="timeline-node hidden md:flex absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-6 h-6 bg-white border-[4px] border-text-primary rounded-full z-10 items-center justify-center shadow-lg transition-transform group-hover:scale-150 duration-500"></div>
+            <div className="relative flex flex-col md:flex-row w-full items-center group bg-bg-card md:bg-transparent rounded-3xl md:rounded-none shadow-bento md:shadow-none p-8 md:p-0">
+              <div className="timeline-node hidden md:flex absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-6 h-6 bg-bg-card border-[4px] border-text-primary rounded-full z-10 items-center justify-center shadow-lg transition-transform group-hover:scale-150 duration-500"></div>
               <div className="w-full md:w-1/2 md:pr-16 lg:pr-24 flex flex-col items-center md:items-start text-center md:text-left relative z-10">
                 <div className="font-mono text-xs font-bold text-text-secondary uppercase tracking-[0.2em] mb-4">
-                  Panoramic View
+                  Today
                 </div>
                 <h3 className="font-serif text-3xl md:text-4xl lg:text-5xl font-medium text-text-primary leading-tight mb-6">
-                  Absolute Clarity.
+                  Know what you can spend today.
                 </h3>
                 <p className="font-sans text-text-secondary leading-relaxed text-lg mb-0">
-                  See your safe-to-spend allocation at a glance with our signature Zen-ring. No overwhelming spreadsheets, just the essential truth.
+                  Open the app and see what&apos;s left this month and what you can spend today without going over. One number, every morning.
                 </p>
               </div>
               <div className="w-full md:w-1/2 md:pr-8 lg:pr-16 flex justify-center md:justify-end mt-12 md:mt-0 relative z-10">
-                <img
-                  alt="Dashboard"
-                  className="w-[90%] max-w-[360px] h-auto object-contain mix-blend-multiply transition-transform duration-700 ease-out group-hover:-translate-y-4 mask-bottom-fade scale-100 md:scale-[1.15] translate-x-12 md:translate-x-40 origin-bottom"
-                  src="/assets/hero_image.png"
-                />
+                <div className="transition-transform duration-700 ease-out group-hover:-translate-y-3">
+                  <TodayMock />
+                </div>
               </div>
             </div>
 
             {/* Branch 2 */}
-            <div className="relative flex flex-col md:flex-row w-full items-center group bg-white md:bg-transparent rounded-3xl md:rounded-none shadow-bento md:shadow-none p-8 md:p-0">
-              <div className="timeline-node hidden md:flex absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-6 h-6 bg-white border-[4px] border-text-primary rounded-full z-10 items-center justify-center shadow-lg transition-transform group-hover:scale-150 duration-500"></div>
+            <div className="relative flex flex-col md:flex-row w-full items-center group bg-bg-card md:bg-transparent rounded-3xl md:rounded-none shadow-bento md:shadow-none p-8 md:p-0">
+              <div className="timeline-node hidden md:flex absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-6 h-6 bg-bg-card border-[4px] border-text-primary rounded-full z-10 items-center justify-center shadow-lg transition-transform group-hover:scale-150 duration-500"></div>
               <div className="w-full md:w-1/2 md:pl-8 lg:pl-16 flex justify-center md:justify-start order-2 md:order-1 mt-12 md:mt-0 relative z-10">
-                <img
-                  alt="Voice Logging"
-                  className="w-[90%] max-w-[360px] h-auto object-contain mix-blend-multiply transition-transform duration-700 ease-out group-hover:-translate-y-4 mask-bottom-fade scale-100 md:scale-[1.15] translate-x-12 md:translate-x-16 -rotate-[16deg] origin-bottom"
-                  src="/assets/Ai Voice.png"
-                />
+                <div className="transition-transform duration-700 ease-out group-hover:-translate-y-3">
+                  <LoggingMock />
+                </div>
               </div>
               <div className="w-full md:w-1/2 md:pl-16 lg:pl-24 flex flex-col items-center md:items-start text-center md:text-left relative z-10 order-1 md:order-2">
                 <div className="font-mono text-xs font-bold text-text-secondary uppercase tracking-[0.2em] mb-4">
-                  Voice AI
+                  Logging
                 </div>
                 <h3 className="font-serif text-3xl md:text-4xl lg:text-5xl font-medium text-text-primary leading-tight mb-6">
-                  Frictionless.
+                  Say it, or type it.
                 </h3>
                 <p className="font-sans text-text-secondary leading-relaxed text-lg mb-0">
-                  Speak naturally. We handle amounts, merchants, and categories instantly. Zero manual entry required.
+                  Log several expenses in one line, past days with &ldquo;yesterday&rdquo;, and impulse buys with &ldquo;guilty&rdquo;. Amounts, shops and categories are filled in for you.
                 </p>
               </div>
             </div>
 
             {/* Branch 3 */}
-            <div className="relative flex flex-col md:flex-row w-full items-center group bg-white md:bg-transparent rounded-3xl md:rounded-none shadow-bento md:shadow-none p-8 md:p-0">
-              <div className="timeline-node hidden md:flex absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-6 h-6 bg-white border-[4px] border-text-primary rounded-full z-10 items-center justify-center shadow-lg transition-transform group-hover:scale-150 duration-500"></div>
+            <div className="relative flex flex-col md:flex-row w-full items-center group bg-bg-card md:bg-transparent rounded-3xl md:rounded-none shadow-bento md:shadow-none p-8 md:p-0">
+              <div className="timeline-node hidden md:flex absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-6 h-6 bg-bg-card border-[4px] border-text-primary rounded-full z-10 items-center justify-center shadow-lg transition-transform group-hover:scale-150 duration-500"></div>
               <div className="w-full md:w-1/2 md:pr-16 lg:pr-24 flex flex-col items-center md:items-start text-center md:text-left relative z-10">
                 <div className="font-mono text-xs font-bold text-text-secondary uppercase tracking-[0.2em] mb-4">
-                  Oracle
+                  Forecast
                 </div>
                 <h3 className="font-serif text-3xl md:text-4xl lg:text-5xl font-medium text-text-primary leading-tight mb-6">
-                  See the future.
+                  See your month-end early.
                 </h3>
                 <p className="font-sans text-text-secondary leading-relaxed text-lg mb-0">
-                  Anticipate tomorrow's landscape. We project future balances so you're always positioned for success.
+                  Your spending pace is projected to the end of the month, with regular bills like rent set aside before they&apos;re due. Spot trouble weeks early, not on the 30th.
                 </p>
               </div>
               <div className="w-full md:w-1/2 md:pr-8 lg:pr-16 flex justify-center md:justify-end mt-12 md:mt-0 relative z-10">
-                <img
-                  alt="Predictive Forecasting"
-                  className="w-[90%] max-w-[360px] h-auto object-contain mix-blend-multiply transition-transform duration-700 ease-out group-hover:-translate-y-4 mask-bottom-fade scale-100 md:scale-[1.15] translate-x-12 md:translate-x-40 origin-bottom"
-                  src="/assets/fortune.png"
-                />
+                <div className="transition-transform duration-700 ease-out group-hover:-translate-y-3">
+                  <ForecastMock />
+                </div>
               </div>
             </div>
 
             {/* Branch 4 */}
-            <div className="relative flex flex-col md:flex-row w-full items-center group bg-white md:bg-transparent rounded-3xl md:rounded-none shadow-bento md:shadow-none p-8 md:p-0">
-              <div className="timeline-node hidden md:flex absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-6 h-6 bg-white border-[4px] border-text-primary rounded-full z-10 items-center justify-center shadow-lg transition-transform group-hover:scale-150 duration-500"></div>
+            <div className="relative flex flex-col md:flex-row w-full items-center group bg-bg-card md:bg-transparent rounded-3xl md:rounded-none shadow-bento md:shadow-none p-8 md:p-0">
+              <div className="timeline-node hidden md:flex absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-6 h-6 bg-bg-card border-[4px] border-text-primary rounded-full z-10 items-center justify-center shadow-lg transition-transform group-hover:scale-150 duration-500"></div>
               <div className="w-full md:w-1/2 md:pl-8 lg:pl-16 flex justify-center md:justify-start order-2 md:order-1 mt-12 md:mt-0 relative z-10">
-                <img
-                  alt="Summit"
-                  className="w-[90%] max-w-[360px] h-auto object-contain mix-blend-multiply transition-transform duration-700 ease-out group-hover:-translate-y-4 mask-bottom-fade scale-[1.2] md:scale-[1.3] translate-x-12 md:-translate-x-4 -rotate-[8deg] origin-bottom"
-                  src="/assets/summit.png"
-                />
+                <div className="transition-transform duration-700 ease-out group-hover:-translate-y-3">
+                  <HabitMock />
+                </div>
               </div>
               <div className="w-full md:w-1/2 md:pl-16 lg:pl-24 flex flex-col items-center md:items-start text-center md:text-left relative z-10 order-1 md:order-2">
                 <div className="font-mono text-xs font-bold text-text-secondary uppercase tracking-[0.2em] mb-4">
-                  Community
+                  Habit
                 </div>
                 <h3 className="font-serif text-3xl md:text-4xl lg:text-5xl font-medium text-text-primary leading-tight mb-6">
-                  Make saving rewarding.
+                  Make it a habit.
                 </h3>
                 <p className="font-sans text-text-secondary leading-relaxed text-lg mb-0">
-                  Ascend 'The Summit'. Compare your discipline globally and turn saving into a highly motivating shared achievement.
+                  A daily streak, a calendar of your light and heavy days, a gentle evening reminder, and a monthly Money Story. Plus a leaderboard if you like a little competition.
                 </p>
               </div>
             </div>

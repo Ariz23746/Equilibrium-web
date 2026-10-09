@@ -18,8 +18,19 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Equilibrium - Financial Clarity",
-  description: "Tranquility in every transaction. The definitive high-fidelity financial application.",
+  metadataBase: new URL("https://www.hqequilibrium.com"),
+  title: "Equilibrium: Expense Tracker & Budget Planner, Just Say It",
+  description:
+    "Track spending by typing or saying it: \"120 petrol, 60 lunch\" and it's logged. See what you can spend today and where your month is heading. Free to start, no bank login.",
+  openGraph: {
+    type: "website",
+    url: "https://www.hqequilibrium.com",
+    siteName: "Equilibrium",
+    title: "Equilibrium: Track spending by just saying it",
+    description: "Type or say what you spent. See what you can spend today. Free to start, no bank login.",
+    images: [{ url: "/assets/screen.png", width: 1024, height: 1024, alt: "Equilibrium app" }],
+  },
+  twitter: { card: "summary_large_image" },
 };
 
 export default function RootLayout({
@@ -30,12 +41,20 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${manrope.variable} ${newsreader.variable} ${spaceGrotesk.variable} h-full antialiased selection:bg-gray-200 selection:text-black`}
     >
       <head>
+        {/* Apply the saved theme before first paint (no light flash for dark-mode visitors) */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{var t=localStorage.getItem("eq-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}`,
+          }}
+        />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
       </head>
-      <body className="min-h-full flex flex-col font-sans bg-bg-main text-text-primary">
+      {/* suppressHydrationWarning: browser extensions (e.g. ColorZilla adds cz-shortcut-listen) edit <body> before React loads */}
+      <body className="min-h-full flex flex-col font-sans bg-bg-main text-text-primary" suppressHydrationWarning>
         {children}
       </body>
     </html>
