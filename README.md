@@ -19,7 +19,7 @@ Marketing website for Equilibrium, an AI personal finance app I built and launch
 - Privacy page
 
 ## Stack
-TypeScript, HTML, CSS (update if needed)
+Next.js, TypeScript, Tailwind CSS
 
 ## About the app
 The mobile app itself is built in React Native with AI voice expense logging, budgeting and PostHog analytics. Its source is private, and I'm happy to walk through it in an interview.
