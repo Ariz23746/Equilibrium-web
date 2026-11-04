@@ -2,7 +2,7 @@
 
 Marketing website for Equilibrium, an AI personal finance app I built and launched solo in June 2026 (300+ downloads across 14+ countries).
 
-📱 App Store: https://apps.apple.com/us/app/expense-tracker-equilibrium/id6778774923
+📱 App Store: https://apps.apple.com/us/app/expense-tracker-equilibrium/id6778774923 
 📱 Google Play: https://play.google.com/store/apps/details?id=com.arizkhan.equilibrium
 
 ## What's here
