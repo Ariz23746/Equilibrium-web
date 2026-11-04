@@ -7,7 +7,6 @@ Marketing website for Equilibrium, an AI personal finance app I built and launch
 
 📱 Google Play: https://play.google.com/store/apps/details?id=com.arizkhan.equilibrium
 
-<img width="220" alt="02_stop_guessing_private" src="https://github.com/user-attachments/assets/bde56126-faad-48a0-8c97-1f3408093bec" />
 <img width="220" alt="01_zero_typing" src="https://github.com/user-attachments/assets/164e68e5-a3b4-4c21-8cf1-a65b497a4dbe" />
 <img width="220" alt="03_know_where_money_goes" src="https://github.com/user-attachments/assets/55921a5d-f60f-48cd-9c37-031fa282945b" />
 <img width="220" alt="04_predict_month_end" src="https://github.com/user-attachments/assets/dacc0bab-8a3d-4c5a-bcba-9123b7abb726" />
@@ -26,4 +25,6 @@ TypeScript, HTML, CSS (update if needed)
 The mobile app itself is built in React Native with AI voice expense logging, budgeting and PostHog analytics. Its source is private, and I'm happy to walk through it in an interview.
 
 ## Run locally
+```
 git clone https://github.com/Ariz23746/Equilibrium-web.git
+```
